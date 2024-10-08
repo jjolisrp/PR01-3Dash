@@ -9,7 +9,16 @@
                     "name": "MoveY",
                     "type": "Value",
                     "id": "839f94e2-8d33-4e77-a4c2-246a6c26bd7c",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ScaleY",
+                    "type": "Value",
+                    "id": "bd3af50a-dc38-4d03-a151-e09f58757dab",
+                    "expectedControlType": "Stick",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -39,7 +48,7 @@
                 {
                     "name": "up",
                     "id": "49be15d9-923e-4e2c-b8ad-50635ddc14a2",
-                    "path": "",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -50,7 +59,7 @@
                 {
                     "name": "down",
                     "id": "c085335a-4128-4696-8f99-9c3a3fc0f311",
-                    "path": "",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -61,7 +70,7 @@
                 {
                     "name": "left",
                     "id": "e14a997c-c317-40f4-a818-87b04caf3d9f",
-                    "path": "",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -72,7 +81,7 @@
                 {
                     "name": "right",
                     "id": "73df5df9-487a-4ca1-8035-6c179d41be8e",
-                    "path": "",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -90,6 +99,61 @@
                     "action": "JumpKey",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "db74de70-f890-40b6-bacc-f3584589ffcf",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScaleY",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "54f15957-0883-48bc-b18d-047cc615dd6a",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScaleY",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "47333c7a-5b4a-47a4-9d3c-a848b27ea6aa",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScaleY",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "866cd5ca-7473-4e19-85d0-23f94fe3384c",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScaleY",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "1461feb2-27c6-46bc-9133-625240731ba9",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScaleY",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
