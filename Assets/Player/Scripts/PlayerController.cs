@@ -1,29 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private CharacterController characterController;
+    private Rigidbody playerRb;
+    public GameManager gameManager;
 
     [Header("Input Actions")]
     [SerializeField] InputActionReference moveY;
     [SerializeField] InputActionReference scaleY;
     [SerializeField] InputActionReference jump;
 
-    [Header("Parametros")]
-    public float jumpForce;
-    public float speed;
-
     private bool isSpecialZone;
     private bool isOnGround;
+
+    Vector3 moveDirection;
 
     private void OnEnable()
     {
         moveY.action.Enable();
         scaleY.action.Enable();
         jump.action.Enable();
+
+        jump.action.performed += OnJump;
     }
 
     private void Awake()
@@ -34,13 +36,13 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        characterController = GetComponent<CharacterController>();
+        playerRb = GetComponent<Rigidbody>();
+        moveDirection = new Vector3(1, 0, 0);
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        playerRb.MovePosition(transform.position + moveDirection * Time.deltaTime * gameManager.playerSpeed);
     }
 
     public void KillPlayer()
@@ -58,6 +60,11 @@ public class PlayerController : MonoBehaviour
         moveY.action.Disable();
         scaleY.action.Disable();
         jump.action.Disable();
+    }
+
+    void OnJump(InputAction.CallbackContext ctx)
+    {
+        moveDirection = new Vector3(1, 1, 0);
     }
 
     void OnDestroy()
