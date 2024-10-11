@@ -5,15 +5,17 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [Header("Player")]
-    public float playerSpeed;
-    public float playerJumpForce;
+
 
     bool isGamePaused;
+
+    [Header("Referencias")]
+    public PlayerController playerController;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartGame();//mas adelante esto estará en el boton de jugar del menú
     }
 
     // Update is called once per frame

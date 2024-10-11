@@ -15,9 +15,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] InputActionReference jump;
 
     private bool isSpecialZone;
-    private bool isOnGround;
+    private bool isGrounded;
 
     Vector3 moveDirection;
+    Vector3 jumpDirection;
+
+    public float speed;
+    public float jumpSpeed;
+    public float ownGravity;
 
     private void OnEnable()
     {
@@ -38,11 +43,22 @@ public class PlayerController : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody>();
         moveDirection = new Vector3(1, 0, 0);
+        jumpDirection = new Vector3(0, 1, 0);
+    }
+
+    void Update()
+    {
+        
     }
 
     void FixedUpdate()
     {
-        playerRb.MovePosition(transform.position + moveDirection * Time.deltaTime * gameManager.playerSpeed);
+        playerRb.velocity = new Vector3(moveDirection.x * speed, playerRb.velocity.y, 0f);
+
+        if(!isGrounded)
+        {
+            playerRb.AddForce(Vector3.down * ownGravity);
+        }
     }
 
     public void KillPlayer()
@@ -55,20 +71,44 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnDisable()
-    {
-        moveY.action.Disable();
-        scaleY.action.Disable();
-        jump.action.Disable();
-    }
-
     void OnJump(InputAction.CallbackContext ctx)
     {
-        moveDirection = new Vector3(1, 1, 0);
+        if(isGrounded)
+        {
+            Vector3 newVelocity = playerRb.velocity;
+            newVelocity.y = jumpSpeed;
+            playerRb.velocity = newVelocity;
+
+            isGrounded = false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == 8)
+        {
+            isGrounded = true;
+
+            Debug.Log("Toca el suelo");
+        }
+        else
+        {
+            isGrounded = false;
+        }
     }
 
     void OnDestroy()
     {
 
     }
+
+    private void OnDisable()
+    {
+        moveY.action.Disable();
+        scaleY.action.Disable();
+        jump.action.Disable();
+        
+        jump.action.performed -= OnJump;
+    }
+
 }
