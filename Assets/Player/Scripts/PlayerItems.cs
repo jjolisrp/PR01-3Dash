@@ -9,6 +9,8 @@ public class PlayerItems : MonoBehaviour
     public float fuelWaste;
     public float nitroWaste;
 
+    float timerFuelWasting;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,14 +23,14 @@ public class PlayerItems : MonoBehaviour
         
     }
 
-    void RefillFuel()
+    public void RefillFuel()
     {
-
+        Debug.Log("Rellenando gasolina");
     }
 
-    void RefillNitro()
+    public void RefillNitro()
     {
-
+        Debug.Log("Rellenando nitro");
     }
 
     void FuelWasting()

@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     Vector3 moveDirection;
     Vector3 jumpDirection;
+    Vector3 startPosition;
 
     public float speed;
     public float jumpSpeed;
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         moveDirection = new Vector3(1, 0, 0);
         jumpDirection = new Vector3(0, 1, 0);
+        startPosition = transform.position;
     }
 
     void Update()
@@ -63,7 +65,9 @@ public class PlayerController : MonoBehaviour
 
     public void KillPlayer()
     {
+        //Sacar particulas y animacion de muerte
 
+        transform.position = startPosition;
     }
 
     void BannerPortalTransform()
@@ -89,7 +93,7 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
 
-            Debug.Log("Toca el suelo");
+            //Debug.Log("Toca el suelo");
         }
         else
         {

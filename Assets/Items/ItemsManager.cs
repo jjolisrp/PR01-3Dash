@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ElementsManager : MonoBehaviour
+public class ItemsManager : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,23 +16,21 @@ public class ElementsManager : MonoBehaviour
         
     }
 
-    protected virtual void ApplyEffect(PlayerController player)
+    protected virtual void ApplyEffect(PlayerItems items)
     {
-        Debug.Log("Holi");
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == 6)
         {
-            PlayerController player = other.GetComponent<PlayerController>();
+            PlayerItems item = other.GetComponent<PlayerItems>();
 
-            if(player != null)
+            if(item != null)
             {
-                ApplyEffect(other.GetComponent<PlayerController>());
+                ApplyEffect(item);
             }
         }
-
-        //Para comparar la colision usar las layers como dijo chema
     }
 }
