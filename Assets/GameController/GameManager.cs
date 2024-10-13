@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Player")]
-
-
     bool isGamePaused;
-
-    [Header("Referencias")]
-    public PlayerController playerController;
 
     // Start is called before the first frame update
     void Start()
