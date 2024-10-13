@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         transform.position = startPosition;
     }
 
-    void BannerPortalTransform()
+    public void BannerPortalTransform()
     {
 
     }
@@ -85,6 +85,11 @@ public class PlayerController : MonoBehaviour
 
             isGrounded = false;
         }
+    }
+
+    void OnMoveY()
+    {
+        
     }
 
     private void OnTriggerEnter(Collider other)
