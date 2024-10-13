@@ -18,7 +18,7 @@ public class ElementsManager : MonoBehaviour
 
     protected virtual void ApplyEffect(PlayerController player)
     {
-        Debug.Log("Holi");
+        //Que efecto aplica al player
     }
 
     private void OnTriggerEnter(Collider other)

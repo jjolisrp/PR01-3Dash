@@ -57,10 +57,7 @@ public class PlayerController : MonoBehaviour
     {
         playerRb.velocity = new Vector3(moveDirection.x * speed, playerRb.velocity.y, 0f);
 
-        if(!isGrounded)
-        {
-            playerRb.AddForce(Vector3.down * ownGravity);
-        }
+        playerRb.AddForce(Vector3.down * ownGravity);
     }
 
     public void KillPlayer()
