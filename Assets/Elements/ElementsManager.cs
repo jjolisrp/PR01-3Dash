@@ -32,7 +32,5 @@ public class ElementsManager : MonoBehaviour
                 ApplyEffect(other.GetComponent<PlayerController>());
             }
         }
-
-        //Para comparar la colision usar las layers como dijo chema
     }
 }

@@ -37,6 +37,11 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void RestartLevel()
+    {
+
+    }
+
     void StartGame(/*Level*/)
     {
         attemptText.text = $"Attempt {1}";

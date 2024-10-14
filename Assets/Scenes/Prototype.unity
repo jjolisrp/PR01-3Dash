@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2261.5159, g: 2402.6877, b: 3499.6646, a: 1}
+  m_IndirectSpecularColor: {r: 2261.303, g: 2402.59, b: 3499.934, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7156,7 +7156,7 @@ MonoBehaviour:
   fuelRefill: 10
   nitroRefill: 100
   fuelWaste: 5
-  nitroWaste: 20
+  nitroWaste: 0.5
   fuelQuantity: 100
   nitroQuantity: 0
 --- !u!136 &1048363270
@@ -10773,7 +10773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b67f2cbe2c1e445aa57ddb2069e0e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gamemanager: {fileID: 0}
+  gamemanager: {fileID: 1013232749}
 --- !u!1 &1765409658
 GameObject:
   m_ObjectHideFlags: 0
