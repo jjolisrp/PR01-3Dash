@@ -22,4 +22,11 @@ public class NitroItem : ItemsManager
 
         items.RefillNitro();
     }
+
+    protected override void DestroyItem()
+    {
+        Collider itemCollider = gameObject.GetComponent<Collider>();
+
+        Destroy(itemCollider);
+    }
 }

@@ -22,4 +22,11 @@ public class FuelItem : ItemsManager
 
         items.RefillFuel();
     }
+
+    protected override void DestroyItem()
+    {
+        Collider itemCollider = gameObject.GetComponent<Collider>();
+
+        Destroy(itemCollider);
+    }
 }

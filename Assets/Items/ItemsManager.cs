@@ -29,6 +29,8 @@ public class ItemsManager : MonoBehaviour
 
             if(item != null)
             {
+                DestroyItem();
+
                 ApplyEffect(item);
             }
         }
