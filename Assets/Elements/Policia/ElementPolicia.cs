@@ -16,7 +16,7 @@ public class ElementPolicia : ElementsManager
         
     }
 
-    void ApplyEffect(PlayerController player)
+    protected override void ApplyEffect(PlayerController player)
     {
         player.KillPlayer();
     }

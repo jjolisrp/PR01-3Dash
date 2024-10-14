@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "RecoverKey",
+                    "type": "Button",
+                    "id": "f6f16aa2-474f-4238-a8e8-e8293aee1c63",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -154,6 +163,17 @@
                     "action": "ScaleY",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "e9e0335b-8db1-472c-a4f1-ee4078cea423",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RecoverKey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

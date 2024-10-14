@@ -1,9 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerRecovery : MonoBehaviour
 {
+    [SerializeField] InputActionReference recoverKey;
+    [SerializeField] PlayerController player;
+
+    private void OnEnable()
+    {
+        recoverKey.action.Enable();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +22,10 @@ public class PlayerRecovery : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(recoverKey.action.phase == InputActionPhase.Performed)
+        {
+            player.KillPlayer();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,5 +39,10 @@ public class PlayerRecovery : MonoBehaviour
                 player.KillPlayer();
             }
         }
+    }
+
+    private void OnDisable()
+    {
+        recoverKey.action.Disable();
     }
 }
