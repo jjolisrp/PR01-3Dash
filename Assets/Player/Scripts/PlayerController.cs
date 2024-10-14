@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed;
     public float ownGravity;
 
+    public int deathCount;
+
     private void OnEnable()
     {
         moveY.action.Enable();
@@ -43,9 +45,13 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+
         moveDirection = new Vector3(1, 0, 0);
         jumpDirection = new Vector3(0, 1, 0);
+
         startPosition = transform.position;
+
+        deathCount = 1;
     }
 
     void Update()
@@ -65,6 +71,8 @@ public class PlayerController : MonoBehaviour
         //Sacar particulas y animacion de muerte
 
         transform.position = startPosition;
+
+        deathCount += 1;
     }
 
     public void BannerPortalTransform()
