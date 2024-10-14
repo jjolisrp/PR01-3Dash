@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerItems : MonoBehaviour
 {
+    [SerializeField] InputActionReference nitroKey;
     [SerializeField] Image fuelBar;
+    [SerializeField] Image nitroBar;
 
     public float fuelRefill;
     public float nitroRefill;
@@ -16,6 +19,11 @@ public class PlayerItems : MonoBehaviour
 
     float timerFuelWasting;
 
+    private void OnEnable()
+    {
+        nitroKey.action.Enable();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,12 +33,10 @@ public class PlayerItems : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(fuelQuantity > 100)
-        {
-            fuelQuantity = 100;
-        }
+        CheckLimits();
 
         fuelBar.fillAmount = fuelQuantity / 100f;
+        nitroBar.fillAmount = nitroQuantity / 100f;
 
         timerFuelWasting += Time.deltaTime;
 
@@ -39,6 +45,14 @@ public class PlayerItems : MonoBehaviour
             timerFuelWasting = 0;
 
             FuelWasting();
+        }
+
+        if(nitroKey.action.phase == InputActionPhase.Performed)
+        {
+            if(nitroQuantity > 0)
+            {
+                NitroWasting();
+            }
         }
     }
 
@@ -51,6 +65,7 @@ public class PlayerItems : MonoBehaviour
     public void RefillNitro()
     {
         Debug.Log("Rellenando nitro");
+        nitroQuantity += nitroRefill;
     }
 
     void FuelWasting()
@@ -60,6 +75,29 @@ public class PlayerItems : MonoBehaviour
 
     void NitroWasting()
     {
+        nitroQuantity -= nitroWaste;
+    }
 
+    void CheckLimits()
+    {
+        if (fuelQuantity > 100)
+        {
+            fuelQuantity = 100;
+        }
+
+        if (nitroQuantity > 100)
+        {
+            nitroQuantity = 100;
+        }
+
+        if (nitroQuantity < 0)
+        {
+            nitroQuantity = 0;
+        }
+    }
+
+    private void OnDisable()
+    {
+        nitroKey.action.Disable();
     }
 }
