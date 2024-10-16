@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.InputSystem;
 using System;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Progress;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,8 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject itemGroup;
     [SerializeField] InputActionReference recoverKey;
 
-    [SerializeField] SceneManager scene;
-
+    //string sceneName;
+    //Scene scene;
     bool isGamePaused;
 
     private void OnEnable()
@@ -26,7 +27,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartGame(scene);//mas adelante esto estará en el boton de jugar del menú
+        //scene = SceneManager.GetActiveScene();
+        //sceneName = scene.name;
+
+        StartGame(/*sceneName*/);//mas adelante esto estará en el boton de jugar del menú
     }
 
     // Update is called once per frame
@@ -59,13 +63,18 @@ public class GameManager : MonoBehaviour
     {
         playerController.KillPlayer();
 
-        itemGroup.SetActive(true);
+        for (int i = 0; i < itemGroup.transform.childCount; i++)
+        {
+            itemGroup.transform.GetChild(i).gameObject.SetActive(true);
+        }
     }
 
-    void StartGame(string SceneName)
+    void StartGame(/*string SceneName*/)
     {
-        SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
+        //SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
+
         attemptText.text = $"Attempt {1}";
+
         itemGroup.SetActive(true);
     }
 
