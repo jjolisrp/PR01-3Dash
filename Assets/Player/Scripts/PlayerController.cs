@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] InputActionReference scaleY;
     [SerializeField] InputActionReference jump;
 
+    public delegate void OnPlayerKilled();
+    public static event OnPlayerKilled PlayerKilled;
+
     private bool isSpecialZone;
     private bool isGrounded;
 
@@ -21,10 +24,12 @@ public class PlayerController : MonoBehaviour
     Vector3 jumpDirection;
     Vector3 startPosition;
 
+    [Header("Variables")]
     public float speed;
     public float jumpSpeed;
     public float ownGravity;
 
+    [Header("Solo Visuales")]
     public int deathCount;
 
     private void OnEnable()
@@ -73,6 +78,12 @@ public class PlayerController : MonoBehaviour
         transform.position = startPosition;
 
         deathCount += 1;
+
+        //Reiniciar las variables que se deban cambiar al morir el player usando delegados y eventos
+        if(PlayerKilled != null)
+        {
+            PlayerKilled.Invoke(); //Llama a todas las funciones que esten suscritas al evento
+        }
     }
 
     public void BannerPortalTransform()

@@ -80,7 +80,6 @@ public class GameManager : MonoBehaviour
 
     void OnPerformed(InputAction.CallbackContext ctx)
     {
-        Debug.Log("Dentro...");
         RetryLevel();
     }
 

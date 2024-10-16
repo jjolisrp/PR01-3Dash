@@ -18,12 +18,12 @@ public class FuelItem : ItemsManager
 
     protected override void ApplyEffect(PlayerItems items)
     {
-        Debug.Log("He colisionado con un fuel");
+        //Debug.Log("He colisionado con un fuel");
 
         items.RefillFuel();
     }
 
-    protected override void DesactivateItem()
+    protected override void DeactivateItem()
     {
         Collider itemCollider = gameObject.GetComponent<Collider>();
 

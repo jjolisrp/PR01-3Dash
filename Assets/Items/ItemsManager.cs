@@ -18,7 +18,7 @@ public class ItemsManager : MonoBehaviour
 
     protected virtual void ApplyEffect(PlayerItems items)
     {
-        //Que fecto aplica a los items
+        //Que efecto aplica a los items del player
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,14 +29,14 @@ public class ItemsManager : MonoBehaviour
 
             if(item != null)
             {
-                DesactivateItem();
+                DeactivateItem();
 
                 ApplyEffect(item);
             }
         }
     }
 
-    protected virtual void DesactivateItem()
+    protected virtual void DeactivateItem()
     {
         //Como se destruye el item
     }

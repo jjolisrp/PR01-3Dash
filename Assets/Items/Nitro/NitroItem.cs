@@ -18,12 +18,12 @@ public class NitroItem : ItemsManager
 
     protected override void ApplyEffect(PlayerItems items)
     {
-        Debug.Log("He colisionado con un nitro");
+        //Debug.Log("He colisionado con un nitro");
 
         items.RefillNitro();
     }
 
-    protected override void DesactivateItem()
+    protected override void DeactivateItem()
     {
         Collider itemCollider = gameObject.GetComponent<Collider>();
 

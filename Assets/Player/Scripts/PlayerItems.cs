@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class PlayerItems : MonoBehaviour
 {
@@ -12,8 +13,10 @@ public class PlayerItems : MonoBehaviour
 
     public float fuelRefill;
     public float nitroRefill;
+
     public float fuelWaste;
     public float nitroWaste;
+
     public float fuelQuantity;
     public float nitroQuantity;
 
@@ -22,6 +25,8 @@ public class PlayerItems : MonoBehaviour
     private void OnEnable()
     {
         nitroKey.action.Enable();
+
+        PlayerController.PlayerKilled += RestartValuesOnPlayerKilled;
     }
 
     // Start is called before the first frame update
@@ -58,13 +63,13 @@ public class PlayerItems : MonoBehaviour
 
     public void RefillFuel()
     {
-        Debug.Log("Rellenando gasolina");
+        //Debug.Log("Rellenando gasolina");
         fuelQuantity += fuelRefill;
     }
 
     public void RefillNitro()
     {
-        Debug.Log("Rellenando nitro");
+        //Debug.Log("Rellenando nitro");
         nitroQuantity += nitroRefill;
     }
 
@@ -96,8 +101,16 @@ public class PlayerItems : MonoBehaviour
         }
     }
 
+    void RestartValuesOnPlayerKilled()
+    {
+        fuelQuantity = 100;
+        nitroQuantity = 0;
+    }
+
     private void OnDisable()
     {
         nitroKey.action.Disable();
+
+        PlayerController.PlayerKilled -= RestartValuesOnPlayerKilled;
     }
 }

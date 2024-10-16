@@ -18,7 +18,7 @@ public class ElementTrafficCone : ElementsManager
 
     protected override void ApplyEffect(PlayerController player)
     {
-        Debug.Log("He colisionado con un cono");
+        //Debug.Log("He colisionado con un cono");
 
         player.KillPlayer();
     }
