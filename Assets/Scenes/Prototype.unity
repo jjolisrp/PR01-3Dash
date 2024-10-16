@@ -6829,6 +6829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 161e0b726dd6e0049b080c163f83665c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 1048363266}
   nitroKey: {fileID: 3043440214058118573, guid: 0ce0643696501bb4fa9fd238267b3576,
     type: 3}
   fuelBar: {fileID: 959848382}
@@ -7787,9 +7788,9 @@ RectTransform:
   - {fileID: 1957117562}
   m_Father: {fileID: 1371288040}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -803, y: -41}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 151, y: -41}
   m_SizeDelta: {x: 96.013, y: 13.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1211497407

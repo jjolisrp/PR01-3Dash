@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
 
     public void KillPlayer()
     {
-        //Sacar particulas y animacion de muerte
+        //FUTURO: Sacar particulas y animacion de muerte
 
         transform.position = startPosition;
 

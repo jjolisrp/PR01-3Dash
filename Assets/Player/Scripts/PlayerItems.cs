@@ -7,6 +7,7 @@ using UnityEngine.Events;
 
 public class PlayerItems : MonoBehaviour
 {
+    [SerializeField] PlayerController playerController;
     [SerializeField] InputActionReference nitroKey;
     [SerializeField] Image fuelBar;
     [SerializeField] Image nitroBar;
@@ -21,10 +22,12 @@ public class PlayerItems : MonoBehaviour
     public float nitroQuantity;
 
     float timerFuelWasting;
+    float speedWithNitro;
 
     private void OnEnable()
     {
         nitroKey.action.Enable();
+        nitroKey.action.canceled += ReturnPlayerSpeed;
 
         PlayerController.PlayerKilled += RestartValuesOnPlayerKilled;
     }
@@ -32,7 +35,7 @@ public class PlayerItems : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        speedWithNitro = playerController.speed * 2f; //Deben ser multiplos de 2
     }
 
     // Update is called once per frame
@@ -81,6 +84,8 @@ public class PlayerItems : MonoBehaviour
     void NitroWasting()
     {
         nitroQuantity -= nitroWaste;
+
+        playerController.speed = speedWithNitro;
     }
 
     void CheckLimits()
@@ -107,9 +112,15 @@ public class PlayerItems : MonoBehaviour
         nitroQuantity = 0;
     }
 
+    void ReturnPlayerSpeed(InputAction.CallbackContext ctx)
+    {
+        playerController.speed = speedWithNitro / 2f;
+    }
+
     private void OnDisable()
     {
         nitroKey.action.Disable();
+        nitroKey.action.canceled += ReturnPlayerSpeed;
 
         PlayerController.PlayerKilled -= RestartValuesOnPlayerKilled;
     }
