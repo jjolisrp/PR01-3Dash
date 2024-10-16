@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel()
     {
-        
+        //SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
     }
 
     public void RetryLevel()
