@@ -124,6 +124,11 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = false;
         }
+
+        if(other.gameObject.layer == 11)
+        {
+            KillPlayer();
+        }
     }
 
     void OnDestroy()
