@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening.Core.Easing;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody playerRb;
+    [Header("References")]
     public GameManager gameManager;
 
     [Header("Input Actions")]
     [SerializeField] InputActionReference moveY;
     [SerializeField] InputActionReference scaleY;
     [SerializeField] InputActionReference jump;
+
+    private Rigidbody playerRb;
 
     public delegate void OnPlayerKilled();
     public static event OnPlayerKilled PlayerKilled;
@@ -29,7 +32,7 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed;
     public float ownGravity;
 
-    [Header("Solo Visuales")]
+    [Header("Only Read")]
     public int deathCount;
 
     private void OnEnable()
@@ -74,6 +77,7 @@ public class PlayerController : MonoBehaviour
     public void KillPlayer()
     {
         //FUTURO: Sacar particulas y animacion de muerte
+        gameManager.RetryLevel();
 
         transform.position = startPosition;
 

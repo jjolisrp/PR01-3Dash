@@ -6658,8 +6658,6 @@ MonoBehaviour:
   playerController: {fileID: 1048363266}
   attemptText: {fileID: 1097195314}
   itemGroup: {fileID: 989357116}
-  recoverKey: {fileID: 923729818971154930, guid: 0ce0643696501bb4fa9fd238267b3576,
-    type: 3}
 --- !u!1 &1048363261
 GameObject:
   m_ObjectHideFlags: 0
@@ -8197,7 +8195,7 @@ GameObject:
   - component: {fileID: 1293621716}
   - component: {fileID: 1293621715}
   m_Layer: 0
-  m_Name: PlayerRecoveryTrigger
+  m_Name: PlayerRecovery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8215,7 +8213,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69576471436aa8b4b8a772808129e549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1013232749}
   player: {fileID: 1048363266}
+  recoverKey: {fileID: 923729818971154930, guid: 0ce0643696501bb4fa9fd238267b3576,
+    type: 3}
 --- !u!65 &1293621716
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13634,8 +13635,8 @@ SceneRoots:
   - {fileID: 1739374811}
   - {fileID: 1427284803}
   - {fileID: 938511389}
-  - {fileID: 85578972}
   - {fileID: 989357117}
+  - {fileID: 85578972}
   - {fileID: 1760525094}
   - {fileID: 1293621719}
   - {fileID: 1097195316}

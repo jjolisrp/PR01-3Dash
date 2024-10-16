@@ -9,20 +9,14 @@ using static UnityEditor.Progress;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] PlayerController playerController;
     [SerializeField] TMP_Text attemptText;
     [SerializeField] GameObject itemGroup;
-    [SerializeField] InputActionReference recoverKey;
 
     //string sceneName;
     //Scene scene;
     bool isGamePaused;
-
-    private void OnEnable()
-    {
-        recoverKey.action.Enable();
-        recoverKey.action.performed += OnPerformed;
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -61,8 +55,6 @@ public class GameManager : MonoBehaviour
 
     public void RetryLevel()
     {
-        playerController.KillPlayer();
-
         for (int i = 0; i < itemGroup.transform.childCount; i++)
         {
             itemGroup.transform.GetChild(i).gameObject.SetActive(true);
@@ -76,17 +68,5 @@ public class GameManager : MonoBehaviour
         attemptText.text = $"Attempt {1}";
 
         itemGroup.SetActive(true);
-    }
-
-    void OnPerformed(InputAction.CallbackContext ctx)
-    {
-        RetryLevel();
-    }
-
-    private void OnDisable()
-    {
-        recoverKey.action.Disable();
-        recoverKey.action.performed -= OnPerformed;
-
     }
 }

@@ -7,11 +7,17 @@ using UnityEngine.Events;
 
 public class PlayerItems : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] PlayerController playerController;
+
+    [Header("Input Actions")]
     [SerializeField] InputActionReference nitroKey;
+
+    [Header("UI Elements")]
     [SerializeField] Image fuelBar;
     [SerializeField] Image nitroBar;
 
+    [Header("Variables")]
     public float fuelRefill;
     public float nitroRefill;
 
@@ -60,6 +66,10 @@ public class PlayerItems : MonoBehaviour
             if(nitroQuantity > 0)
             {
                 NitroWasting();
+            }
+            else
+            {
+                playerController.speed = speedWithNitro / 2f;
             }
         }
     }
