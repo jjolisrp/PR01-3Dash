@@ -23,10 +23,10 @@ public class FuelItem : ItemsManager
         items.RefillFuel();
     }
 
-    protected override void DestroyItem()
+    protected override void DesactivateItem()
     {
         Collider itemCollider = gameObject.GetComponent<Collider>();
 
-        Destroy(itemCollider);
+        gameObject.SetActive(false);
     }
 }

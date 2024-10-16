@@ -29,14 +29,14 @@ public class ItemsManager : MonoBehaviour
 
             if(item != null)
             {
-                DestroyItem();
+                DesactivateItem();
 
                 ApplyEffect(item);
             }
         }
     }
 
-    protected virtual void DestroyItem()
+    protected virtual void DesactivateItem()
     {
         //Como se destruye el item
     }

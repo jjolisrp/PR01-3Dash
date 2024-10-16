@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     void InGame()
     {
-        attemptText.text = $"Attempt {playerController.deathCount}";
+        attemptText.text = $"Attempt- {playerController.deathCount}";
     }
 
     void GamePause()
