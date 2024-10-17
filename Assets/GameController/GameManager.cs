@@ -5,7 +5,6 @@ using TMPro;
 using UnityEngine.InputSystem;
 using System;
 using UnityEngine.SceneManagement;
-using static UnityEditor.Progress;
 
 public class GameManager : MonoBehaviour
 {
