@@ -132,7 +132,7 @@
                 {
                     "name": "up",
                     "id": "54f15957-0883-48bc-b18d-047cc615dd6a",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -143,7 +143,7 @@
                 {
                     "name": "down",
                     "id": "47333c7a-5b4a-47a4-9d3c-a848b27ea6aa",
-                    "path": "<Keyboard>/s",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -154,7 +154,7 @@
                 {
                     "name": "left",
                     "id": "866cd5ca-7473-4e19-85d0-23f94fe3384c",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -165,7 +165,7 @@
                 {
                     "name": "right",
                     "id": "1461feb2-27c6-46bc-9133-625240731ba9",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

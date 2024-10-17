@@ -27,8 +27,12 @@ public class PlayerController : MonoBehaviour
     Vector3 jumpDirection;
     Vector3 startPosition;
 
+    Vector2 moveYValue;
+    Vector2 scaleYValue;
+
     [Header("Variables")]
     public float speed;
+    public float speedSpecialZone;
     public float jumpSpeed;
     public float ownGravity;
 
@@ -64,14 +68,29 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        
+        if(isSpecialZone)
+        {
+            Debug.Log("Leyendo teclas de la zona especial");
+
+            moveYValue = moveY.action.ReadValue<Vector2>();
+
+            scaleYValue = scaleY.action.ReadValue<Vector2>();
+        }
     }
 
     void FixedUpdate()
     {
-        playerRb.velocity = new Vector3(moveDirection.x * speed, playerRb.velocity.y, 0f);
+        if(!isSpecialZone)
+        {
+            playerRb.velocity = new Vector3(moveDirection.x * speed, playerRb.velocity.y, 0f);
 
-        playerRb.AddForce(Vector3.down * ownGravity);
+            playerRb.AddForce(Vector3.down * ownGravity);
+        }
+        else
+        {
+            playerRb.velocity = new Vector3(moveDirection.x * speed, moveYValue.y * speedSpecialZone, 0f);
+        }
+        
     }
 
     public void KillPlayer()
@@ -83,6 +102,8 @@ public class PlayerController : MonoBehaviour
 
         deathCount += 1;
 
+        isSpecialZone = false;
+
         //Reiniciar las variables que se deban cambiar al morir el player usando delegados y eventos
         if(PlayerKilled != null)
         {
@@ -90,9 +111,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //POSIBLE PLAYER DESTRANSFORM PARA FUTUROS PORTALES
+    //void PlayerDestransform()
+    //{
+    //    isSpecialZone = false;
+    //}
+
     public void BannerPortalTransform()
     {
+        Debug.Log("Tranformando al player");
 
+        isSpecialZone = true;
     }
 
     void OnJump(InputAction.CallbackContext ctx)
@@ -105,11 +134,6 @@ public class PlayerController : MonoBehaviour
 
             isGrounded = false;
         }
-    }
-
-    void OnMoveY()
-    {
-        
     }
 
     private void OnTriggerEnter(Collider other)
