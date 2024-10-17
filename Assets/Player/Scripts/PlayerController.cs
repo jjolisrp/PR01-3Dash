@@ -89,6 +89,8 @@ public class PlayerController : MonoBehaviour
         else
         {
             playerRb.velocity = new Vector3(moveDirection.x * speed, moveYValue.y * speedSpecialZone, 0f);
+
+            //Para la escala tengo que usar un transform.localsacale tanto para los colliders como para el coche
         }
         
     }
