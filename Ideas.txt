@@ -1,0 +1,1 @@
+hacer la qte con un vector en el que guarde el abecedario

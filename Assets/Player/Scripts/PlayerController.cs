@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("References")]
     public GameManager gameManager;
+    [SerializeField] GameObject playerVisuals;
 
     [Header("Input Actions")]
     [SerializeField] InputActionReference moveY;
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] InputActionReference jump;
 
     private Rigidbody playerRb;
+    private BoxCollider[] playerColliders;
 
     public delegate void OnPlayerKilled();
     public static event OnPlayerKilled PlayerKilled;
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
     Vector3 moveDirection;
     Vector3 jumpDirection;
     Vector3 startPosition;
+    Vector3 startScale;
 
     Vector2 moveYValue;
     Vector2 scaleYValue;
@@ -57,11 +60,14 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        playerColliders = GetComponents<BoxCollider>();
+
 
         moveDirection = new Vector3(1, 0, 0);
         jumpDirection = new Vector3(0, 1, 0);
 
         startPosition = transform.position;
+        startScale = playerVisuals.transform.localScale;
 
         deathCount = 1;
     }
@@ -90,7 +96,10 @@ public class PlayerController : MonoBehaviour
         {
             playerRb.velocity = new Vector3(moveDirection.x * speed, moveYValue.y * speedSpecialZone, 0f);
 
-            //Para la escala tengo que usar un transform.localsacale tanto para los colliders como para el coche
+            if(playerVisuals.transform.localScale.y < 1f && playerVisuals.transform.localScale.y > -1f)
+            {
+                playerVisuals.transform.localScale += new Vector3(0, 0, scaleYValue.y);
+            }
         }
         
     }
@@ -101,6 +110,7 @@ public class PlayerController : MonoBehaviour
         gameManager.RetryLevel();
 
         transform.position = startPosition;
+        playerVisuals.transform.localScale = startScale;
 
         deathCount += 1;
 
