@@ -76,12 +76,12 @@ public class PlayerController : MonoBehaviour
     {
         if(isSpecialZone)
         {
-            //Debug.Log("Leyendo teclas de la zona especial");
-
+            //Leer el valor de los ejes de escalado y movimiento
             moveYValue = moveY.action.ReadValue<Vector2>();
 
             scaleYValue = scaleY.action.ReadValue<Vector2>();
 
+            //Comprobar que el player no se pase de su escala en el tramo especial
             if (playerVisuals.transform.localScale.z > 1f)
             {
                 playerVisuals.transform.localScale = new Vector3(playerVisuals.transform.localScale.x, playerVisuals.transform.localScale.y, 1.0f);
@@ -97,14 +97,17 @@ public class PlayerController : MonoBehaviour
     {
         if(!isSpecialZone)
         {
+            //Movimiento del tramo normal
             playerRb.velocity = new Vector3(moveDirection.x * speed, playerRb.velocity.y, 0f);
 
             playerRb.AddForce(Vector3.down * ownGravity);
         }
         else
         {
+            //Movimiento del tramo especial
             playerRb.velocity = new Vector3(moveDirection.x * speed, moveYValue.y * speedSpecialZone, 0f);
 
+            //Comprobar si el player está dentro de los parametros de escala y escalarlo si es así
             if(playerVisuals.transform.localScale.z < 1.1f && playerVisuals.transform.localScale.z > 0.1f)
             {
                 playerVisuals.transform.localScale += new Vector3(0, 0, scaleYValue.y / 20.0f);
