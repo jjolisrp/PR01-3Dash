@@ -76,11 +76,20 @@ public class PlayerController : MonoBehaviour
     {
         if(isSpecialZone)
         {
-            Debug.Log("Leyendo teclas de la zona especial");
+            //Debug.Log("Leyendo teclas de la zona especial");
 
             moveYValue = moveY.action.ReadValue<Vector2>();
 
             scaleYValue = scaleY.action.ReadValue<Vector2>();
+
+            if (playerVisuals.transform.localScale.z > 1f)
+            {
+                playerVisuals.transform.localScale = new Vector3(playerVisuals.transform.localScale.x, playerVisuals.transform.localScale.y, 1.0f);
+            }
+            else if (playerVisuals.transform.localScale.z < 0.2f)
+            {
+                playerVisuals.transform.localScale = new Vector3(playerVisuals.transform.localScale.x, playerVisuals.transform.localScale.y, 0.2f);
+            }
         }
     }
 
@@ -96,9 +105,9 @@ public class PlayerController : MonoBehaviour
         {
             playerRb.velocity = new Vector3(moveDirection.x * speed, moveYValue.y * speedSpecialZone, 0f);
 
-            if(playerVisuals.transform.localScale.y < 1f && playerVisuals.transform.localScale.y > -1f)
+            if(playerVisuals.transform.localScale.z < 1.1f && playerVisuals.transform.localScale.z > 0.1f)
             {
-                playerVisuals.transform.localScale += new Vector3(0, 0, scaleYValue.y);
+                playerVisuals.transform.localScale += new Vector3(0, 0, scaleYValue.y / 20.0f);
             }
         }
         
