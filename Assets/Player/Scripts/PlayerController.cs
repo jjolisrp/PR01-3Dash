@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         scaleY.action.Enable();
         jump.action.Enable();
 
-        jump.action.performed += OnJump;
+        jump.action.started += OnJump;
     }
 
     private void Awake()
@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour
         scaleY.action.Disable();
         jump.action.Disable();
         
-        jump.action.performed -= OnJump;
+        jump.action.started -= OnJump;
     }
 
 }
