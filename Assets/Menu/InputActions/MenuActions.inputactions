@@ -1,0 +1,34 @@
+{
+    "name": "MenuActions",
+    "maps": [
+        {
+            "name": "MenuActionMap",
+            "id": "c60ca18d-f1f7-4a1f-95ed-b96b57b1a872",
+            "actions": [
+                {
+                    "name": "SkipScene",
+                    "type": "Button",
+                    "id": "8f1a6c81-495a-409e-b9bc-157415635ea0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8bafb90a-46bf-48aa-b60c-7108996b2642",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SkipScene",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
