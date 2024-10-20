@@ -72,6 +72,11 @@ public class PlayerItems : MonoBehaviour
                 playerController.speed = speedWithNitro / 2f;
             }
         }
+
+        if(fuelQuantity < 0)
+        {
+            playerController.KillPlayer();
+        }
     }
 
     public void RefillFuel()

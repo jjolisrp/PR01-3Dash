@@ -24,9 +24,9 @@ public class FinishLine : MonoBehaviour
         if(other.gameObject.layer == 6)
         {
             //Para futuro: tiene que llamar a finishgame de game manager
-            Debug.Log("FinishLine alcanzado");
+            //Debug.Log("FinishLine alcanzado");
 
-            SceneManager.LoadScene("Prototype", LoadSceneMode.Single);
+            SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
 
             gameManager.RestartLevel();
         }
