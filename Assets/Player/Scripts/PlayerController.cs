@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
     public delegate void OnPlayerKilled();
     public static event OnPlayerKilled PlayerKilled;
 
-    private bool isSpecialZone;
     private bool isGrounded;
 
     Vector3 moveDirection;
@@ -41,6 +40,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Only Read")]
     public int deathCount;
+    public bool isSpecialZone;
 
     private void OnEnable()
     {
@@ -70,6 +70,7 @@ public class PlayerController : MonoBehaviour
         startScale = transform.localScale;
 
         deathCount = 1;
+        isSpecialZone = false;
     }
 
     void Update()
@@ -135,12 +136,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //POSIBLE PLAYER DESTRANSFORM PARA FUTUROS PORTALES
-    //void PlayerDestransform()
-    //{
-    //    isSpecialZone = false;
-    //    transform.localScale = startScale;
-    //}
+    public void PlayerDestransform()
+    {
+        isSpecialZone = false;
+        transform.localScale = startScale;
+    }
 
     public void BannerPortalTransform()
     {
