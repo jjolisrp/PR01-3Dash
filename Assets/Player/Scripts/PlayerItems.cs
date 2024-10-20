@@ -30,6 +30,9 @@ public class PlayerItems : MonoBehaviour
     float timerFuelWasting;
     float speedWithNitro;
 
+    float startFuelQuantity;
+    float startNitroQuantity;
+
     private void OnEnable()
     {
         nitroKey.action.Enable();
@@ -42,6 +45,9 @@ public class PlayerItems : MonoBehaviour
     void Start()
     {
         speedWithNitro = playerController.speed * 2f; //Deben ser multiplos de 2
+
+        startFuelQuantity = fuelQuantity;
+        startNitroQuantity = nitroQuantity;
     }
 
     // Update is called once per frame
@@ -123,8 +129,9 @@ public class PlayerItems : MonoBehaviour
 
     void RestartValuesOnPlayerKilled()
     {
-        fuelQuantity = 100;
-        nitroQuantity = 0;
+        fuelQuantity = startFuelQuantity;
+        nitroQuantity = startNitroQuantity;
+        timerFuelWasting = 0;
     }
 
     void ReturnPlayerSpeed(InputAction.CallbackContext ctx)

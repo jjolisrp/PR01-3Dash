@@ -21,7 +21,7 @@ public class ElementBanner : ElementsManager
     protected override void ApplyEffect(PlayerController player)
     {
         bannerCollider.enabled = false;
-        Invoke("ReactivatePortal", 0.1f);
+        Invoke("ReactivatePortal", 0.5f);
 
         if(!player.isSpecialZone)
         {
