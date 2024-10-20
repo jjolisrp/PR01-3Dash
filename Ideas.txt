@@ -1,1 +1,8 @@
 hacer la qte con un vector en el que guarde el abecedario
+
+ASSETS
+
+Estrella: https://poly.pizza/m/9NXf-SDxJny
+
+x:-36.97
+y:0.57

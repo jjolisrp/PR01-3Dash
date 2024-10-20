@@ -29,7 +29,7 @@ public class ElementsManager : MonoBehaviour
 
             if(player != null)
             {
-                ApplyEffect(other.GetComponent<PlayerController>());
+                ApplyEffect(player);
             }
         }
     }

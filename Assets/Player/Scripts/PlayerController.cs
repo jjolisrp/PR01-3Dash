@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
         jumpDirection = new Vector3(0, 1, 0);
 
         startPosition = transform.position;
-        startScale = playerVisuals.transform.localScale;
+        startScale = transform.localScale;
 
         deathCount = 1;
     }
@@ -82,13 +82,13 @@ public class PlayerController : MonoBehaviour
             scaleYValue = scaleY.action.ReadValue<Vector2>();
 
             //Comprobar que el player no se pase de su escala en el tramo especial
-            if (playerVisuals.transform.localScale.z > 1f)
+            if (transform.localScale.y > 1.7f)
             {
-                playerVisuals.transform.localScale = new Vector3(playerVisuals.transform.localScale.x, playerVisuals.transform.localScale.y, 1.0f);
+                transform.localScale = new Vector3(transform.localScale.x, 1.7f, transform.localScale.z);
             }
-            else if (playerVisuals.transform.localScale.z < 0.2f)
+            else if (transform.localScale.y < 0.2f)
             {
-                playerVisuals.transform.localScale = new Vector3(playerVisuals.transform.localScale.x, playerVisuals.transform.localScale.y, 0.2f);
+                transform.localScale = new Vector3(transform.localScale.x, 0.2f, transform.localScale.z);
             }
         }
     }
@@ -108,9 +108,9 @@ public class PlayerController : MonoBehaviour
             playerRb.velocity = new Vector3(moveDirection.x * speed, moveYValue.y * speedSpecialZone, 0f);
 
             //Comprobar si el player está dentro de los parametros de escala y escalarlo si es así
-            if(playerVisuals.transform.localScale.z < 1.1f && playerVisuals.transform.localScale.z > 0.1f)
+            if(transform.localScale.y < 1.8f && transform.localScale.y > 0.1f)
             {
-                playerVisuals.transform.localScale += new Vector3(0, 0, scaleYValue.y / 20.0f);
+                transform.localScale += new Vector3(0, scaleYValue.y / 30.0f, 0);
             }
         }
         
@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
         gameManager.RetryLevel();
 
         transform.position = startPosition;
-        playerVisuals.transform.localScale = startScale;
+        transform.localScale = startScale;
 
         deathCount += 1;
 
@@ -139,11 +139,12 @@ public class PlayerController : MonoBehaviour
     //void PlayerDestransform()
     //{
     //    isSpecialZone = false;
+    //    transform.localScale = startScale;
     //}
 
     public void BannerPortalTransform()
     {
-        Debug.Log("Tranformando al player");
+        //Debug.Log("Tranformando al player");
 
         isSpecialZone = true;
     }
