@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2263.3635, g: 2404.7424, b: 3502.1997, a: 1}
+  m_IndirectSpecularColor: {r: 2261.9788, g: 2403.0784, b: 3499.8364, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10295,7 +10295,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: adda57f0d0efb1542877176d6a733362, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01a9ad36ca009bc40961280cba85d5a1, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -22956,7 +22956,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: adda57f0d0efb1542877176d6a733362, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01a9ad36ca009bc40961280cba85d5a1, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
