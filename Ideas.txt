@@ -1,4 +1,4 @@
-hacer la qte con un vector en el que guarde el abecedario
+hacer la qte con un vector en el que guarde el abecedario y cuando seleccione una, se active un textmeshpro que cambie su contenido a la letra
 
 ASSETS
 

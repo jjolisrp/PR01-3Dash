@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
 
     private bool isGrounded;
 
+    int layerMask = 1 << 8;
+
     Vector3 moveDirection;
     Vector3 jumpDirection;
     Vector3 startPosition;
@@ -75,6 +77,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        RaycastHit hit;
+
         if(isSpecialZone)
         {
             //Leer el valor de los ejes de escalado y movimiento
@@ -91,6 +95,12 @@ public class PlayerController : MonoBehaviour
             {
                 transform.localScale = new Vector3(transform.localScale.x, 0.2f, transform.localScale.z);
             }
+        }
+
+        if(Physics.CapsuleCast(playerRb.position, playerRb.position, 1.0f, Vector3.down, 1.0f))
+        {
+            Debug.Log("Detecto Suelo");
+            isGrounded = true;
         }
     }
 
@@ -163,16 +173,16 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == 8)
-        {
-            isGrounded = true;
+        //if(other.gameObject.layer == 8)
+        //{
+        //    isGrounded = true;
 
-            //Debug.Log("Toca el suelo");
-        }
-        else
-        {
-            isGrounded = false;
-        }
+        //    //Debug.Log("Toca el suelo");
+        //}
+        //else
+        //{
+        //    isGrounded = false;
+        //}
 
         if(other.gameObject.layer == 11)
         {
