@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening.Core.Easing;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
@@ -77,9 +78,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        RaycastHit hit;
-
-        if(isSpecialZone)
+        if (isSpecialZone)
         {
             //Leer el valor de los ejes de escalado y movimiento
             moveYValue = moveY.action.ReadValue<Vector2>();
@@ -96,13 +95,23 @@ public class PlayerController : MonoBehaviour
                 transform.localScale = new Vector3(transform.localScale.x, 0.2f, transform.localScale.z);
             }
         }
-
-        if(Physics.CapsuleCast(playerRb.position, playerRb.position, 1.0f, Vector3.down, 1.0f))
+        else
         {
-            Debug.Log("Detecto Suelo");
-            isGrounded = true;
+
         }
     }
+
+    //private void OnDrawGizmos()
+    //{
+    //    //for (int i = 0; i < 10; i++)
+    //    //{
+    //    //    Gizmos.color = isGrounded ? Color.green : Color.red;
+    //    //    Gizmos.DrawSphere(playerRb.position + Vector3.down * i / 10.0f, 0.5f);
+    //    //}
+
+    //    Gizmos.color = isGrounded ? Color.green : Color.red;
+    //    Gizmos.DrawSphere(playerRb.position, 0.5f);
+    //}
 
     void FixedUpdate()
     {
@@ -112,6 +121,13 @@ public class PlayerController : MonoBehaviour
             playerRb.velocity = new Vector3(moveDirection.x * speed, playerRb.velocity.y, 0f);
 
             playerRb.AddForce(Vector3.down * ownGravity);
+
+            if (Physics.CapsuleCast(playerRb.position, playerRb.position, 0.3f, Vector3.down, 0.01f))
+            {
+                Debug.Log("Detecto Suelo");
+                isGrounded = true;
+            }
+
         }
         else
         {
