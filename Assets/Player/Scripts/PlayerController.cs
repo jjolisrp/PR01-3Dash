@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     Vector3 jumpDirection;
     Vector3 startPosition;
     Vector3 startScale;
+    Vector3 frontRaycastPosition;
+    Vector3 backRaycastPosition;
 
     Vector2 moveYValue;
     Vector2 scaleYValue;
@@ -72,6 +74,9 @@ public class PlayerController : MonoBehaviour
         startPosition = transform.position;
         startScale = transform.localScale;
 
+        frontRaycastPosition = new Vector3(0.8f, 0, 0);
+        backRaycastPosition = new Vector3(-1f, 0, 0);
+
         deathCount = 1;
         isSpecialZone = false;
     }
@@ -101,18 +106,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //private void OnDrawGizmos()
-    //{
-    //    //for (int i = 0; i < 10; i++)
-    //    //{
-    //    //    Gizmos.color = isGrounded ? Color.green : Color.red;
-    //    //    Gizmos.DrawSphere(playerRb.position + Vector3.down * i / 10.0f, 0.5f);
-    //    //}
-
-    //    Gizmos.color = isGrounded ? Color.green : Color.red;
-    //    Gizmos.DrawSphere(playerRb.position, 0.5f);
-    //}
-
     void FixedUpdate()
     {
         if(!isSpecialZone)
@@ -122,12 +115,17 @@ public class PlayerController : MonoBehaviour
 
             playerRb.AddForce(Vector3.down * ownGravity);
 
-            if (Physics.CapsuleCast(playerRb.position, playerRb.position, 0.3f, Vector3.down, 0.01f))
+            if (Physics.Raycast(transform.position + frontRaycastPosition, Vector3.down, 0.3f) || Physics.Raycast(transform.position + backRaycastPosition, Vector3.down, 0.3f))
             {
                 Debug.Log("Detecto Suelo");
+                Debug.DrawRay(transform.position + frontRaycastPosition, Vector3.down * 0.3f, Color.yellow);
+                Debug.DrawRay(transform.position + backRaycastPosition, Vector3.down * 0.3f, Color.yellow);
                 isGrounded = true;
             }
-
+            else
+            {
+                isGrounded = false;
+            }
         }
         else
         {
@@ -189,17 +187,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if(other.gameObject.layer == 8)
-        //{
-        //    isGrounded = true;
-
-        //    //Debug.Log("Toca el suelo");
-        //}
-        //else
-        //{
-        //    isGrounded = false;
-        //}
-
         if(other.gameObject.layer == 11)
         {
             KillPlayer();
