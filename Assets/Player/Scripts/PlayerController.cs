@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     public GameManager gameManager;
     [SerializeField] GameObject playerVisuals;
+    [SerializeField] ParticleSystem deadParticles;
 
     [Header("Input Actions")]
     [SerializeField] InputActionReference moveY;
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
     public static event OnPlayerKilled PlayerKilled;
 
     private bool isGrounded;
+    private bool isDead;
 
     int layerMask = 1 << 8;
 
@@ -108,7 +110,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(!isSpecialZone)
+        if(!isSpecialZone && !isDead)
         {
             //Movimiento del tramo normal
             playerRb.velocity = new Vector3(moveDirection.x * speed, playerRb.velocity.y, 0f);
@@ -117,9 +119,6 @@ public class PlayerController : MonoBehaviour
 
             if (Physics.Raycast(transform.position + frontRaycastPosition, Vector3.down, 0.4f, layerMask) || Physics.Raycast(transform.position + backRaycastPosition, Vector3.down, 0.4f, layerMask))
             {
-                Debug.Log("Detecto Suelo");
-                Debug.DrawRay(transform.position + frontRaycastPosition, Vector3.down * 0.3f, Color.yellow);
-                Debug.DrawRay(transform.position + backRaycastPosition, Vector3.down * 0.3f, Color.yellow);
                 isGrounded = true;
             }
             else
@@ -143,11 +142,15 @@ public class PlayerController : MonoBehaviour
 
     public void KillPlayer()
     {
-        //FUTURO: Sacar particulas y animacion de muerte
-        gameManager.RetryLevel();
+        isDead = true;
 
-        transform.position = startPosition;
-        transform.localScale = startScale;
+        Invoke("Restart", 3.0f);
+
+        playerVisuals.SetActive(false);
+
+        deadParticles.gameObject.SetActive(true);
+
+        playerRb.velocity = new Vector3(0, 0, 0);
 
         deathCount += 1;
 
@@ -158,6 +161,20 @@ public class PlayerController : MonoBehaviour
         {
             PlayerKilled.Invoke(); //Llama a todas las funciones que esten suscritas al evento
         }
+    }
+
+    void Restart()
+    {
+        gameManager.RetryLevel();
+
+        isDead = false;
+
+        playerVisuals.SetActive(true);
+
+        deadParticles.gameObject.SetActive(false);
+
+        transform.position = startPosition;
+        transform.localScale = startScale;
     }
 
     public void PlayerDestransform()

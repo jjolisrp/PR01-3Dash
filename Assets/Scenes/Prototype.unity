@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2263.389, g: 2404.7385, b: 3502.2427, a: 1}
+  m_IndirectSpecularColor: {r: 2261.303, g: 2402.59, b: 3499.934, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -21639,6 +21639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1013232749}
   playerVisuals: {fileID: 1316059853}
+  deadParticles: {fileID: 635090393}
   moveY: {fileID: -7658372844058600684, guid: 0ce0643696501bb4fa9fd238267b3576, type: 3}
   scaleY: {fileID: -7259245908341786690, guid: 0ce0643696501bb4fa9fd238267b3576, type: 3}
   jump: {fileID: -6854253663758657573, guid: 0ce0643696501bb4fa9fd238267b3576, type: 3}
