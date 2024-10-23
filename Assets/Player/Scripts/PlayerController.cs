@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
         startScale = transform.localScale;
 
         frontRaycastPosition = new Vector3(0.8f, 0, 0);
-        backRaycastPosition = new Vector3(-1f, 0, 0);
+        backRaycastPosition = new Vector3(-0.8f, 0, 0);
 
         deathCount = 1;
         isSpecialZone = false;
@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
 
             playerRb.AddForce(Vector3.down * ownGravity);
 
-            if (Physics.Raycast(transform.position + frontRaycastPosition, Vector3.down, 0.3f) || Physics.Raycast(transform.position + backRaycastPosition, Vector3.down, 0.3f))
+            if (Physics.Raycast(transform.position + frontRaycastPosition, Vector3.down, 0.4f, layerMask) || Physics.Raycast(transform.position + backRaycastPosition, Vector3.down, 0.4f, layerMask))
             {
                 Debug.Log("Detecto Suelo");
                 Debug.DrawRay(transform.position + frontRaycastPosition, Vector3.down * 0.3f, Color.yellow);
