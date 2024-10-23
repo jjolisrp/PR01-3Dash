@@ -3,6 +3,4 @@ hacer la qte con un vector en el que guarde el abecedario y cuando seleccione un
 ASSETS
 
 Estrella: https://poly.pizza/m/9NXf-SDxJny
-
-x:-36.97
-y:0.57
+Wheel: https://poly.pizza/m/cV6yx0v8Bfy
