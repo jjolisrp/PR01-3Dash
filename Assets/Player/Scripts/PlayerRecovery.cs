@@ -31,7 +31,7 @@ public class PlayerRecovery : MonoBehaviour
 
     void OnPerformed(InputAction.CallbackContext ctx)
     {
-        player.KillPlayer();
+        player.RestartPlayer();
     }
 
     private void OnTriggerEnter(Collider other)

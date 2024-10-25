@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
 
             playerRb.AddForce(Vector3.down * ownGravity);
 
-            if (Physics.Raycast(transform.position + frontRaycastPosition, Vector3.down, 0.4f, layerMask) || Physics.Raycast(transform.position + backRaycastPosition, Vector3.down, 0.4f, layerMask))
+            if (Physics.Raycast(transform.position + frontRaycastPosition, Vector3.down, 0.4f, layerMask)/* || Physics.Raycast(transform.position + backRaycastPosition, Vector3.down, 0.4f, layerMask)*/)
             {
                 isGrounded = true;
             }
@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
                 isGrounded = false;
             }
         }
-        else
+        else if(isSpecialZone && !isDead)
         {
             //Movimiento del tramo especial
             playerRb.velocity = new Vector3(moveDirection.x * speed, moveYValue.y * speedSpecialZone, 0f);
@@ -144,15 +144,13 @@ public class PlayerController : MonoBehaviour
     {
         isDead = true;
 
-        Invoke("Restart", 3.0f);
+        Invoke("RestartPlayer", 3.0f);
 
         playerVisuals.SetActive(false);
 
         deadParticles.gameObject.SetActive(true);
 
         playerRb.velocity = new Vector3(0, 0, 0);
-
-        deathCount += 1;
 
         isSpecialZone = false;
 
@@ -163,17 +161,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Restart()
+    public void RestartPlayer()
     {
         gameManager.RetryLevel();
 
         isDead = false;
+
+        deathCount += 1;
 
         playerVisuals.SetActive(true);
 
         deadParticles.gameObject.SetActive(false);
 
         transform.position = startPosition;
+        Debug.Log("Colocando posicion " + startPosition);
+        Debug.Log(transform.position);
         transform.localScale = startScale;
     }
 
