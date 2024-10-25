@@ -29,6 +29,7 @@ public class QTEManager : MonoBehaviour
         for(int i = 0; i < caracterNumber; i++)
         {
             selectCaracter = Random.Range(0, abecedario.Length);
+            
         }
     }
 }

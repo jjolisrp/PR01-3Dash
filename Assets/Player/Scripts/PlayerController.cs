@@ -21,8 +21,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRb;
     private BoxCollider[] playerColliders;
 
-    public delegate void OnPlayerKilled();
-    public static event OnPlayerKilled PlayerKilled;
+    public delegate void OnPlayerRestarted();
+    public static event OnPlayerRestarted PlayerRestarted;
 
     private bool isGrounded;
     private bool isDead;
@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     Vector3 moveDirection;
     Vector3 jumpDirection;
     Vector3 startPosition;
+    Vector3 startRbPosition;
     Vector3 startScale;
     Vector3 frontRaycastPosition;
     Vector3 backRaycastPosition;
@@ -74,6 +75,7 @@ public class PlayerController : MonoBehaviour
         jumpDirection = new Vector3(0, 1, 0);
 
         startPosition = transform.position;
+        startRbPosition = playerRb.position;
         startScale = transform.localScale;
 
         frontRaycastPosition = new Vector3(0.8f, 0, 0);
@@ -153,12 +155,6 @@ public class PlayerController : MonoBehaviour
         playerRb.velocity = new Vector3(0, 0, 0);
 
         isSpecialZone = false;
-
-        //Reiniciar las variables que se deban cambiar al morir el player usando delegados y eventos
-        if(PlayerKilled != null)
-        {
-            PlayerKilled.Invoke(); //Llama a todas las funciones que esten suscritas al evento
-        }
     }
 
     public void RestartPlayer()
@@ -173,9 +169,14 @@ public class PlayerController : MonoBehaviour
 
         deadParticles.gameObject.SetActive(false);
 
+        //Reiniciar las variables que se deban cambiar al reiniciar el player usando delegados y eventos
+        if (PlayerRestarted != null)
+        {
+            PlayerRestarted.Invoke(); //Llama a todas las funciones que esten suscritas al evento
+        }
+
         transform.position = startPosition;
-        Debug.Log("Colocando posicion " + startPosition);
-        Debug.Log(transform.position);
+        playerRb.position = startRbPosition;
         transform.localScale = startScale;
     }
 

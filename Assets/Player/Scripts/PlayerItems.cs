@@ -38,7 +38,7 @@ public class PlayerItems : MonoBehaviour
         nitroKey.action.Enable();
         nitroKey.action.canceled += ReturnPlayerSpeed;
 
-        PlayerController.PlayerKilled += RestartValuesOnPlayerKilled;
+        PlayerController.PlayerRestarted += RestartValuesOnPlayerKilled;
     }
 
     // Start is called before the first frame update
@@ -144,6 +144,6 @@ public class PlayerItems : MonoBehaviour
         nitroKey.action.Disable();
         nitroKey.action.canceled += ReturnPlayerSpeed;
 
-        PlayerController.PlayerKilled -= RestartValuesOnPlayerKilled;
+        PlayerController.PlayerRestarted -= RestartValuesOnPlayerKilled;
     }
 }
