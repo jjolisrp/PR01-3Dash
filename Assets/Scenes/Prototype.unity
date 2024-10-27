@@ -133,8 +133,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3968164}
   - component: {fileID: 3968165}
+  - component: {fileID: 3968166}
   m_Layer: 0
-  m_Name: QTEKeyPressTrigger
+  m_Name: QTEManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,6 +180,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 41.43454, y: 1, z: 2.6486797}
   m_Center: {x: -20.21727, y: 0, z: -0.06301445}
+--- !u!114 &3968166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3968163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc9ed2fa13cabd747b863f2fad6afa1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &18092718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37557,6 +37570,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: QTEWall
       objectReference: {fileID: 0}
+    - target: {fileID: 4045382618008950412, guid: 6c9bd1b7211187549a0acb039715b0d0,
+        type: 3}
+      propertyPath: keyPressTrigger
+      value: 
+      objectReference: {fileID: 3968163}
     - target: {fileID: 5329214266960028203, guid: 6c9bd1b7211187549a0acb039715b0d0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37607,7 +37625,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4045382618008950412, guid: 6c9bd1b7211187549a0acb039715b0d0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5329214266960028203, guid: 6c9bd1b7211187549a0acb039715b0d0,

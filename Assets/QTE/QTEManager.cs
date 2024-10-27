@@ -5,18 +5,20 @@ using TMPro;
 
 public class QTEManager : MonoBehaviour
 {
-    GameObject keyPressTrigger;
-
     string[] abecedario = { "A", "B", "C", "D", "E", "F", "G", "H"};
     string[] selectedCaracters;
 
     int caracterNumber = 0;
     int selectCaracter = 0;
 
+    bool isOnTrigger;
+
     // Start is called before the first frame update
     void Start()
     {
-        keyPressTrigger = GetComponentInChildren<GameObject>();
+        selectedCaracters = new string[3];
+
+        isOnTrigger = false;
 
         SelectCaracters();
     }
@@ -46,11 +48,16 @@ public class QTEManager : MonoBehaviour
 
         for(int i = 0; i < selectedCaracters.Length; i++)
         {
-            caracterGo = keyPressTrigger.transform.GetChild(i).gameObject;
+            caracterGo = transform.GetChild(i).gameObject;
             caracterText = caracterGo.GetComponent<TMP_Text>();
             caracterText.text = selectedCaracters[i];
             caracterGo.SetActive(true);
         }
+    }
+
+    void RestartQTE() //Cuando termine de hacer funcionar la qte, adjuntar esta funcion al evento de cuando muere el player para reiniciar la QTE
+    {
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -61,6 +68,8 @@ public class QTEManager : MonoBehaviour
 
             if(player != null)
             {
+                isOnTrigger = true;
+
                 UnhideSelectedCaracters();
             }
         }
