@@ -30,6 +30,8 @@ public class QTEManager : MonoBehaviour
     void Update()
     {
 
+        //Preguntar si debera hacer 3 comprobaciones del estilo: if(selectedCaracters == 1)/if(selectedCaracters == 2)/if(selectedCaracters == 3)
+
         if (Input.GetKeyDown(keys[0]))
         {
             Debug.Log("Presionada 1");

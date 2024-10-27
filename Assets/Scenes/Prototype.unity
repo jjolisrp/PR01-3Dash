@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2262.5276, g: 2404.0667, b: 3501.6724, a: 1}
+  m_IndirectSpecularColor: {r: 2261.303, g: 2402.598, b: 3499.9497, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -36987,6 +36987,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: QTEWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3087170502996310447, guid: 6c9bd1b7211187549a0acb039715b0d0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4045382618008950412, guid: 6c9bd1b7211187549a0acb039715b0d0,
         type: 3}
