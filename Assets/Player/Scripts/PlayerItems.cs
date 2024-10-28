@@ -27,9 +27,7 @@ public class PlayerItems : MonoBehaviour
     public float fuelQuantity;
     public float nitroQuantity;
 
-    float timerFuelWasting;
     float speedWithNitro;
-
     float startFuelQuantity;
     float startNitroQuantity;
 
@@ -58,14 +56,7 @@ public class PlayerItems : MonoBehaviour
         fuelBar.fillAmount = fuelQuantity / 100f;
         nitroBar.fillAmount = nitroQuantity / 100f;
 
-        timerFuelWasting += Time.deltaTime;
-
-        if(timerFuelWasting > 3)
-        {
-            timerFuelWasting = 0;
-
-            FuelWasting();
-        }
+        FuelWasting();
 
         if(nitroKey.action.phase == InputActionPhase.Performed)
         {
@@ -131,7 +122,6 @@ public class PlayerItems : MonoBehaviour
     {
         fuelQuantity = startFuelQuantity;
         nitroQuantity = startNitroQuantity;
-        timerFuelWasting = 0;
     }
 
     void ReturnPlayerSpeed(InputAction.CallbackContext ctx)

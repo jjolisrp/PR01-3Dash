@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
         scaleY.action.Enable();
         jump.action.Enable();
 
-        jump.action.started += OnJump;
+        jump.action.performed += OnJump;
     }
 
     private void Awake()
@@ -106,7 +106,14 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            //if(jump.action.phase == InputActionPhase.Performed && isGrounded)
+            //{
+            //    Vector3 newVelocity = playerRb.velocity;
+            //    newVelocity.y = jumpSpeed;
+            //    playerRb.velocity = newVelocity;
 
+            //    isGrounded = false;
+            //}
         }
     }
 
@@ -195,7 +202,7 @@ public class PlayerController : MonoBehaviour
 
     void OnJump(InputAction.CallbackContext ctx)
     {
-        if(isGrounded)
+        if (isGrounded)
         {
             Vector3 newVelocity = playerRb.velocity;
             newVelocity.y = jumpSpeed;
@@ -224,7 +231,7 @@ public class PlayerController : MonoBehaviour
         scaleY.action.Disable();
         jump.action.Disable();
         
-        jump.action.started -= OnJump;
+        jump.action.performed -= OnJump;
     }
 
 }
