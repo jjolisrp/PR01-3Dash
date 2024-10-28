@@ -5,23 +5,32 @@ using TMPro;
 
 public class QTEManager : MonoBehaviour
 {
+    [SerializeField] Material canPass;
+    [SerializeField] Material canNotPass;
+
+    MeshRenderer wallRenderer;
+    Collider wallCollider;
+
+    GameObject caracterGo;
+
     string[] abecedario = { "A", "B", "C", "D", "E", "F", "G", "H"};
     string[] selectedCaracters;
 
     int caracterNumber = 0;
     int selectCaracter = 0;
-
-    bool isOnTrigger;
-    bool firstCaracterPressed;
-    bool secondCaracterPressed;
-    bool thirdCaracterPressed;
+    int indiceDetection;
 
     KeyCode[] keys;
 
     // Start is called before the first frame update
     void Start()
     {
-        isOnTrigger = false;
+        wallRenderer = transform.parent.gameObject.GetComponent<MeshRenderer>();
+        wallRenderer.material = canNotPass;
+
+        wallCollider = transform.parent.gameObject.GetComponent<Collider>();
+
+        indiceDetection = 0;
 
         SelectCaracters();
     }
@@ -29,31 +38,18 @@ public class QTEManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //Preguntar si debera hacer 3 comprobaciones del estilo: if(selectedCaracters == 1)/if(selectedCaracters == 2)/if(selectedCaracters == 3)
-
-        if (Input.GetKeyDown(keys[0]))
+        if (Input.GetKeyDown(keys[indiceDetection]))
         {
-            Debug.Log("Presionada 1");
-            firstCaracterPressed = true;
-        }
+            Debug.Log("Pulsada tecla: " + indiceDetection);
+            caracterGo = transform.GetChild(indiceDetection).gameObject;
+            TMP_Text caracterText = caracterGo.GetComponent<TMP_Text>();
+            caracterText.color = Color.green;
 
-        if (Input.GetKeyDown(keys[1]) && firstCaracterPressed)
-        {
-            Debug.Log("Presionada 2");
-            secondCaracterPressed = true;
-        }
-
-        if (Input.GetKeyDown(keys[2]) && secondCaracterPressed)
-        {
-            Debug.Log("Presionada 3");
-            thirdCaracterPressed = true;
-        }
-
-        if(firstCaracterPressed && secondCaracterPressed && thirdCaracterPressed)
-        {
-            Debug.Log("Haciendo wall traspasable");
-            MakeWallTransferable();
+            if (!(indiceDetection == selectedCaracters.Length -1))
+            {
+                indiceDetection++;
+            }
+            else { MakeWallTransferable(); }
         }
     }
 
@@ -77,7 +73,6 @@ public class QTEManager : MonoBehaviour
 
     void UnhideSelectedCaracters()
     {
-        GameObject caracterGo;
         TMP_Text caracterText;
 
         for(int i = 0; i < selectedCaracters.Length; i++)
@@ -96,7 +91,8 @@ public class QTEManager : MonoBehaviour
 
     void MakeWallTransferable()
     {
-
+        wallRenderer.material = canPass;
+        wallCollider.enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -107,8 +103,6 @@ public class QTEManager : MonoBehaviour
 
             if(player != null)
             {
-                isOnTrigger = true;
-
                 UnhideSelectedCaracters();
             }
         }
