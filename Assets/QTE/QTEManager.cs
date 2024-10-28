@@ -45,10 +45,13 @@ public class QTEManager : MonoBehaviour
     {
         if (Input.GetKeyDown(keys[indiceDetection]))
         {
-            Debug.Log("Pulsada tecla: " + indiceDetection);
             caracterGo = transform.GetChild(indiceDetection).gameObject;
+
             TMP_Text caracterText = caracterGo.GetComponent<TMP_Text>();
             caracterText.color = Color.green;
+
+            caracterGo.transform.GetChild(0).gameObject.SetActive(false);
+            caracterGo.transform.GetChild(1).gameObject.SetActive(true);
 
             if (!(indiceDetection == selectedCaracters.Length -1))
             {
@@ -83,9 +86,11 @@ public class QTEManager : MonoBehaviour
         for(int i = 0; i < selectedCaracters.Length; i++)
         {
             caracterGo = transform.GetChild(i).gameObject;
+
             caracterText = caracterGo.GetComponent<TMP_Text>();
             caracterText.text = selectedCaracters[i];
             caracterText.color = Color.red;
+
             caracterGo.SetActive(true);
         }
     }
@@ -97,10 +102,14 @@ public class QTEManager : MonoBehaviour
         for (int i = 0; i < selectedCaracters.Length; i++)
         {
             caracterGo = transform.GetChild(i).gameObject;
+
             caracterText = caracterGo.GetComponent<TMP_Text>();
             caracterText.text = selectedCaracters[i];
             caracterText.color = Color.red;
+
             caracterGo.SetActive(false);
+            caracterGo.transform.GetChild(0).gameObject.SetActive(true);
+            caracterGo.transform.GetChild(1).gameObject.SetActive(false);
         }
     }
 
