@@ -22,6 +22,11 @@ public class QTEManager : MonoBehaviour
 
     KeyCode[] keys;
 
+    private void OnEnable()
+    {
+        PlayerController.PlayerRestarted += RestartQTE;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -80,19 +85,43 @@ public class QTEManager : MonoBehaviour
             caracterGo = transform.GetChild(i).gameObject;
             caracterText = caracterGo.GetComponent<TMP_Text>();
             caracterText.text = selectedCaracters[i];
+            caracterText.color = Color.red;
             caracterGo.SetActive(true);
+        }
+    }
+
+    void HideCaracters()
+    {
+        TMP_Text caracterText;
+
+        for (int i = 0; i < selectedCaracters.Length; i++)
+        {
+            caracterGo = transform.GetChild(i).gameObject;
+            caracterText = caracterGo.GetComponent<TMP_Text>();
+            caracterText.text = selectedCaracters[i];
+            caracterText.color = Color.red;
+            caracterGo.SetActive(false);
         }
     }
 
     void RestartQTE() //Cuando termine de hacer funcionar la qte, adjuntar esta funcion al evento de cuando muere el player para reiniciar la QTE
     {
-
+        HideCaracters();
+        MakeWallUnTransferable();
+        SelectCaracters();
+        indiceDetection = 0;
     }
 
     void MakeWallTransferable()
     {
         wallRenderer.material = canPass;
         wallCollider.enabled = false;
+    }
+
+    void MakeWallUnTransferable()
+    {
+        wallRenderer.material = canNotPass;
+        wallCollider.enabled = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -106,5 +135,10 @@ public class QTEManager : MonoBehaviour
                 UnhideSelectedCaracters();
             }
         }
+    }
+
+    private void OnDisable()
+    {
+        PlayerController.PlayerRestarted -= RestartQTE;
     }
 }

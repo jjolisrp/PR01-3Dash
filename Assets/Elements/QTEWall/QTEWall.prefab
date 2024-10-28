@@ -63,9 +63,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 2cd2ec049bb621148a72705be820a1b1, type: 2}
-  - {fileID: 2100000, guid: 9ecbee7eb0451ad4eb4ba77a84b5195b, type: 2}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -531,6 +529,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc9ed2fa13cabd747b863f2fad6afa1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canPass: {fileID: 2100000, guid: 9ecbee7eb0451ad4eb4ba77a84b5195b, type: 2}
+  canNotPass: {fileID: 2100000, guid: 2cd2ec049bb621148a72705be820a1b1, type: 2}
 --- !u!1 &8025835499536040132
 GameObject:
   m_ObjectHideFlags: 0
