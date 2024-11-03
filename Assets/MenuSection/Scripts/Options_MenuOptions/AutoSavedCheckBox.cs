@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class AutoSavedCheckBox : MonoBehaviour
 {
-    [SerializeField] string playerPrefsKey;
+    [SerializeField] string playerPrefsKey = "BoxValue";
     int defaultValue = 0;
     Toggle toggle;
 

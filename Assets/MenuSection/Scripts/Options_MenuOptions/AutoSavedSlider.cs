@@ -6,15 +6,13 @@ using UnityEngine.UI;
 
 public class AutoSavedSlider : MonoBehaviour
 {
-    [SerializeField] string playerPrefKey;
+    [SerializeField] string playerPrefKey = "SliderValue";
     float defaultValue = 1;
     Slider slider;
 
     private void Awake()
     {
         slider = GetComponent<Slider>();
-
-        playerPrefKey = gameObject.name + "_SliderValue";
 
         slider.onValueChanged.AddListener(OnSliderValueChanged);
 
