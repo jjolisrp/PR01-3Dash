@@ -45,7 +45,7 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
 
-        EditorApplication.isPlaying = false;
+        //EditorApplication.isPlaying = false;
     }
 
     private void OnDisable()
