@@ -1675,7 +1675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4526d9fdad3cb6049aa3c346861ca353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: Prototype
+  levelName: Level-1
   levelButton: {fileID: 1272853363}
 --- !u!1 &1345945856
 GameObject:
@@ -1729,7 +1729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4526d9fdad3cb6049aa3c346861ca353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: Prototype
+  levelName: Level-2
   levelButton: {fileID: 1345945859}
 --- !u!114 &1345945859
 MonoBehaviour:
