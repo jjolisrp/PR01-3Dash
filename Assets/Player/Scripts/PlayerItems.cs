@@ -31,6 +31,8 @@ public class PlayerItems : MonoBehaviour
     float startFuelQuantity;
     float startNitroQuantity;
 
+    bool isGamePaused;
+
     private void OnEnable()
     {
         nitroKey.action.Enable();
@@ -51,22 +53,25 @@ public class PlayerItems : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckLimits();
-
-        fuelBar.fillAmount = fuelQuantity / 100f;
-        nitroBar.fillAmount = nitroQuantity / 100f;
-
-        FuelWasting();
-
-        if(nitroKey.action.phase == InputActionPhase.Performed)
+        if(!isGamePaused)
         {
-            if(nitroQuantity > 0)
+            CheckLimits();
+
+            fuelBar.fillAmount = fuelQuantity / 100f;
+            nitroBar.fillAmount = nitroQuantity / 100f;
+
+            FuelWasting();
+
+            if (nitroKey.action.phase == InputActionPhase.Performed)
             {
-                NitroWasting();
-            }
-            else
-            {
-                playerController.speed = speedWithNitro / 2f;
+                if (nitroQuantity > 0)
+                {
+                    NitroWasting();
+                }
+                else
+                {
+                    playerController.speed = speedWithNitro / 2f;
+                }
             }
         }
 
@@ -116,6 +121,11 @@ public class PlayerItems : MonoBehaviour
         {
             nitroQuantity = 0;
         }
+    }
+
+    public void OnPause()
+    {
+        isGamePaused = !isGamePaused;
     }
 
     void RestartValuesOnPlayerKilled()

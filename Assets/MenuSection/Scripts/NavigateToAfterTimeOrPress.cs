@@ -17,7 +17,10 @@ public class NavigateToAfterTimeOrPress : MonoBehaviour
 
     void Awake()
     {
-        Invoke("FadeIn", waitTime);
+        if(waitTime < 50)
+        {
+            Invoke("FadeIn", waitTime);
+        }
     }
 
     private void OnEnable()

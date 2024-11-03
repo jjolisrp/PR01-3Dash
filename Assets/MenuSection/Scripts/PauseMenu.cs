@@ -7,15 +7,20 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     [SerializeField] InputActionReference escape;
     [SerializeField] Canvas optionCanvas;
 
     Button resume;
+    Button restart;
     Button options;
     Button mainMenu;
 
     CanvasGroup canvasGroupPause;
     CanvasGroup canvasGroupOptions;
+
+    public delegate void OnPauseStateChanging();
+    public static event OnPauseStateChanging PauseMenuStateChanging;
 
     [Header("Debug")]
     public bool pauseMenuIsActive;
@@ -43,10 +48,12 @@ public class PauseMenu : MonoBehaviour
         canvasGroupPause.blocksRaycasts = false;
 
         resume = transform.GetChild(1).GetComponent<Button>();
-        options = transform.GetChild(2).GetComponent<Button>();
-        mainMenu = transform.GetChild(3).GetComponent<Button>();
+        restart = transform.GetChild(2).GetComponent<Button>();
+        options = transform.GetChild(3).GetComponent<Button>();
+        mainMenu = transform.GetChild(4).GetComponent<Button>();
 
         resume.onClick.AddListener(HidePauseMenu);
+        restart.onClick.AddListener(RestartLevel);
         options.onClick.AddListener(OpenAndCloseOptions);
         mainMenu.onClick.AddListener(GoToMainMenu);
     }
@@ -65,6 +72,11 @@ public class PauseMenu : MonoBehaviour
         else if (canvasGroupPause.alpha == 1f && pauseMenuIsActive)
         {
             HidePauseMenu();
+        }
+
+        if(PauseMenuStateChanging != null)
+        {
+            PauseMenuStateChanging.Invoke();
         }
     }
 
@@ -110,10 +122,16 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    void RestartLevel()
+    {
+        Time.timeScale = 1f;
+        gameManager.RestartLevel();
+    }
+
     void GoToMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        gameManager.FinishGame();
     }
 
     private void OnDisable()

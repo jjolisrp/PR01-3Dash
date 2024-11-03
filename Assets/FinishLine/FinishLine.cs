@@ -23,12 +23,7 @@ public class FinishLine : MonoBehaviour
     {
         if(other.gameObject.layer == 6)
         {
-            //Para futuro: tiene que llamar a finishgame de game manager
-            //Debug.Log("FinishLine alcanzado");
-
-            SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
-
-            gameManager.RestartLevel();
+            gameManager.FinishGame();
         }
     }
 }

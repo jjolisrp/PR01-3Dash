@@ -13,7 +13,7 @@ public class QTEManager : MonoBehaviour
 
     GameObject caracterGo;
 
-    string[] abecedario = { "A", "B", "C", "D", "E", "F", "G", "H"};
+    string[] abecedario = { "T", "Y", "U", "I", "O", "G", "H", "J"};
     string[] selectedCaracters;
 
     int caracterNumber = 0;
@@ -63,7 +63,7 @@ public class QTEManager : MonoBehaviour
 
     void SelectCaracters()
     {
-        caracterNumber = Random.Range(1, 3);
+        caracterNumber = Random.Range(1, 4);
 
         selectedCaracters = new string[caracterNumber];
 

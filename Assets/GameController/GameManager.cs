@@ -10,20 +10,25 @@ public class GameManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] PlayerController playerController;
+    [SerializeField] PlayerItems playerItems;
     [SerializeField] TMP_Text attemptText;
     [SerializeField] GameObject itemGroup;
 
-    //string sceneName;
-    //Scene scene;
+    Scene scene;
+
     bool isGamePaused;
+
+    private void OnEnable()
+    {
+        PauseMenu.PauseMenuStateChanging += GamePause;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        //scene = SceneManager.GetActiveScene();
-        //sceneName = scene.name;
+        scene = SceneManager.GetActiveScene();
 
-        StartGame(/*sceneName*/);//mas adelante esto estará en el boton de jugar del menú
+        StartGame();
     }
 
     // Update is called once per frame
@@ -32,9 +37,9 @@ public class GameManager : MonoBehaviour
         InGame();
     }
 
-    void FinishGame()
+    public void FinishGame()
     {
-
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
     void InGame()
@@ -44,12 +49,12 @@ public class GameManager : MonoBehaviour
 
     void GamePause()
     {
-
+        playerItems.OnPause();
     }
 
     public void RestartLevel()
     {
-        //SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
+        SceneManager.LoadScene(scene.name, LoadSceneMode.Single);
     }
 
     public void RetryLevel()
@@ -60,12 +65,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void StartGame(/*string SceneName*/)
+    void StartGame()
     {
-        //SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
-
         attemptText.text = $"Attempt {1}";
 
         itemGroup.SetActive(true);
+    }
+
+    private void OnDisable()
+    {
+        PauseMenu.PauseMenuStateChanging -= GamePause;
     }
 }
