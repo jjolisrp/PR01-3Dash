@@ -7,10 +7,13 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/SplashCompanyName.unity
-    guid: ef8e247d1f77aac44bac4ad153b6d764
+    guid: 82aa2aea32b42924890c4d2c822c2c3a
+  - enabled: 1
+    path: Assets/Scenes/SplashGameName.unity
+    guid: 96665cb589a78c74498f4b80ebe2e1b1
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
-    guid: 954e84c1ce2f6694781c8946b2b63a1c
+    guid: 061e590d83b82d04d87d31d446d28599
   - enabled: 1
     path: Assets/Scenes/Prototype.unity
     guid: 8124e5870f4fd4c779e7a5f994e84ad1
