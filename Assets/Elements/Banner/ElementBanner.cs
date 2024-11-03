@@ -25,12 +25,10 @@ public class ElementBanner : ElementsManager
 
         if(!player.isSpecialZone)
         {
-            Debug.Log("llamando a tranformar player");
             player.BannerPortalTransform();
         }
         else
         {
-            Debug.Log("llamando a destransformar player");
             player.PlayerDestransform();
         }
     }
