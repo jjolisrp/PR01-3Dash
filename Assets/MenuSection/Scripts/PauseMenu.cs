@@ -42,9 +42,9 @@ public class PauseMenu : MonoBehaviour
         canvasGroupPause.interactable = false;
         canvasGroupPause.blocksRaycasts = false;
 
-        resume = transform.GetChild(0).GetComponent<Button>();
-        options = transform.GetChild(1).GetComponent<Button>();
-        mainMenu = transform.GetChild(2).GetComponent<Button>();
+        resume = transform.GetChild(1).GetComponent<Button>();
+        options = transform.GetChild(2).GetComponent<Button>();
+        mainMenu = transform.GetChild(3).GetComponent<Button>();
 
         resume.onClick.AddListener(HidePauseMenu);
         options.onClick.AddListener(OpenAndCloseOptions);
