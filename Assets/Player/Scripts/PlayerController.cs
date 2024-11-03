@@ -151,6 +151,8 @@ public class PlayerController : MonoBehaviour
 
     public void KillPlayer()
     {
+        jump.action.Disable(); //Mirar si hay otra manera de hacerlo
+
         isDead = true;
 
         Invoke("RestartPlayer", 3.0f);
@@ -185,6 +187,8 @@ public class PlayerController : MonoBehaviour
         transform.position = startPosition;
         playerRb.position = startRbPosition;
         transform.localScale = startScale;
+
+        jump.action.Enable(); //Mirar si hay otra manera de hacerlo
     }
 
     public void PlayerDestransform()
