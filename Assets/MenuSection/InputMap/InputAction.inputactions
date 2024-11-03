@@ -1,0 +1,65 @@
+{
+    "name": "InputAction",
+    "maps": [
+        {
+            "name": "InputActionsMap",
+            "id": "dc03e7ce-990a-4554-919d-172a8e403d0b",
+            "actions": [
+                {
+                    "name": "Skip",
+                    "type": "Button",
+                    "id": "15fafcde-c027-4d2d-a350-b9087f845754",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OpenClosePause",
+                    "type": "Button",
+                    "id": "f61a503f-1d96-41e6-af87-ac33cca549b5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1280d013-5a17-40ac-87b8-401a4c7365c1",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "92a6ca4f-08b3-40ad-87eb-fba720c110f3",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenClosePause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6c732087-23d2-47e5-92d2-a635b9f10521",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenClosePause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
