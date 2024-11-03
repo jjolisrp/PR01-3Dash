@@ -6,8 +6,6 @@ using Cinemachine;
 public class AutoSavedBox_ForMouseAxisInvert : AutoSavedCheckBox
 {
     [SerializeField] CinemachineFreeLook freeLookCamera;
-    bool inVertedverticalAxis = false;
-    bool invertedHorizontalAxis = false;
 
     protected override void InternalValueChanged(bool newValue)
     {

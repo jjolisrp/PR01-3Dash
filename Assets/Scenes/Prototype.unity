@@ -28418,55 +28418,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!1 &1376336938
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1376336940}
-  - component: {fileID: 1376336939}
-  m_Layer: 0
-  m_Name: Global Volume
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1376336939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376336938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsGlobal: 1
-  priority: 0
-  blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 11400000, guid: 9ff5e582d16e3554490ccbe8d07aa4d0, type: 2}
---- !u!4 &1376336940
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376336938}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1387658567 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1574196291135991920, guid: 592af638efba9864eb961f22ae175343,
@@ -37600,7 +37551,7 @@ PrefabInstance:
         type: 3}
       propertyPath: volume
       value: 
-      objectReference: {fileID: 1376336939}
+      objectReference: {fileID: 432432460}
     - target: {fileID: 6210827434671439443, guid: 07b2aa3e645d30c47be883b58ce40356,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -37615,7 +37566,7 @@ PrefabInstance:
         type: 3}
       propertyPath: volume
       value: 
-      objectReference: {fileID: 1376336939}
+      objectReference: {fileID: 432432460}
     - target: {fileID: 6784687924100593346, guid: 07b2aa3e645d30c47be883b58ce40356,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -37971,5 +37922,4 @@ SceneRoots:
   - {fileID: 1640224020}
   - {fileID: 8439332602411612535}
   - {fileID: 3352651434940039645}
-  - {fileID: 1376336940}
   - {fileID: 1024806835}
