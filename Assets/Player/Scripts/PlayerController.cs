@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
     public delegate void OnPlayerRestarted();
     public static event OnPlayerRestarted PlayerRestarted;
 
+    public delegate void OnPlayerDead();
+    public static event OnPlayerDead PlayerDied;
+
     private bool isGrounded;
     private bool isDead;
 
@@ -154,6 +157,11 @@ public class PlayerController : MonoBehaviour
         jump.action.Disable(); //Mirar si hay otra manera de hacerlo
 
         isDead = true;
+
+        if(PlayerDied != null)
+        {
+            PlayerDied.Invoke();
+        }
 
         Invoke("RestartPlayer", 3.0f);
 
