@@ -30340,7 +30340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1013232749}
-  player: {fileID: 0}
+  player: {fileID: 1385827360}
   recoverKey: {fileID: 923729818971154930, guid: 0ce0643696501bb4fa9fd238267b3576,
     type: 3}
 --- !u!65 &1293621716
