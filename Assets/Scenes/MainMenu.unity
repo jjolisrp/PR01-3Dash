@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.22857383, g: 0.2569686, b: 0.32605824, a: 1}
+  m_IndirectSpecularColor: {r: 0.22857392, g: 0.2569677, b: 0.326057, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 123.45
+  m_fontSize: 123.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -302,7 +302,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8282665618467005153, guid: 46190d355ca86d54d9f7fcf3d39703a5,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: d170896181de6994fa234747b0274635, type: 3}
+  m_audioClip: {fileID: 8300000, guid: add6ab3ca83517243850f2c7bc6b331a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
