@@ -10,7 +10,8 @@ Musica Flatout: https://www.youtube.com/watch?v=Hor5UwOpDNY&list=PLKlbTXjy-F6q9q
 Coche: Unity Asset Store
 Town Sign: poly pizza
 Cono: poly pizza
-HDRI: https://polyhaven.com/a/zwartkops_curve_sunset
+HDRI-Gameplay: https://polyhaven.com/a/zwartkops_curve_sunset
+HDRI-Menu: https://hdri-haven.com/hdri/starry-night-sky-dome
 sonido de botón: https://pixabay.com/es/sound-effects/087917-enter-button-47235/
 
 preguntar si el cambio de la manera del onjump es correcta
