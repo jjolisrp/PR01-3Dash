@@ -3322,6 +3322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startsFadedOut: 0
+  startSelection: {fileID: 706298627010581244}
 --- !u!1 &6637888208452435039
 GameObject:
   m_ObjectHideFlags: 0

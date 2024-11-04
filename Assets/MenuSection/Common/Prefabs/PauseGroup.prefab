@@ -326,7 +326,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 7354708985412447026, guid: 46190d355ca86d54d9f7fcf3d39703a5,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: d22ddc3d640b7074aaba0ff1dc85e1d7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: add915b64a0631d45a47bc62563c9133, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -535,7 +535,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   escape: {fileID: 8168318021194163601, guid: 9b104b8374da18b45ac9ebb1f8894c2b, type: 3}
-  optionCanvas: {fileID: 1495461310240096577}
   pauseMenuIsActive: 0
 --- !u!225 &4235705057626632619
 CanvasGroup:
@@ -561,7 +560,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e06995223b53704bb9bcb1c6f1cae0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startsFadedOut: 0
+  startsFadedOut: 1
+  startSelection: {fileID: 1387657307751135575}
 --- !u!1 &668010562910752163
 GameObject:
   m_ObjectHideFlags: 0
@@ -2861,9 +2861,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5946812007188845538}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: OpenAndCloseOptions
+      - m_Target: {fileID: 7117522288592257022}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2873,9 +2873,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7117522288592257022}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
+      - m_Target: {fileID: 431244140971149495}
+        m_TargetAssemblyTypeName: MenuFader, Assembly-CSharp
+        m_MethodName: FadeOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 961079024916478412}
+        m_TargetAssemblyTypeName: MenuFader, Assembly-CSharp
+        m_MethodName: FadeIn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3831,6 +3843,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 961079024916478412}
+        m_TargetAssemblyTypeName: MenuFader, Assembly-CSharp
+        m_MethodName: FadeOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 431244140971149495}
+        m_TargetAssemblyTypeName: MenuFader, Assembly-CSharp
+        m_MethodName: FadeIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5309482597332964600
 GameObject:
   m_ObjectHideFlags: 0
@@ -4397,7 +4433,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e06995223b53704bb9bcb1c6f1cae0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startsFadedOut: 0
+  startsFadedOut: 1
+  startSelection: {fileID: 1536957170027400937}
 --- !u!1 &6118914630031461338
 GameObject:
   m_ObjectHideFlags: 0

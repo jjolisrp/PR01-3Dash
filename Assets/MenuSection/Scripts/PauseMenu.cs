@@ -9,15 +9,12 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
     [SerializeField] InputActionReference escape;
-    [SerializeField] Canvas optionCanvas;
 
     Button resume;
     Button restart;
-    Button options;
     Button mainMenu;
 
     CanvasGroup canvasGroupPause;
-    CanvasGroup canvasGroupOptions;
 
     public delegate void OnPauseStateChanging();
     public static event OnPauseStateChanging PauseMenuStateChanging;
@@ -37,24 +34,14 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuIsActive = false;
 
-        canvasGroupOptions = optionCanvas.GetComponent<CanvasGroup>();
-        canvasGroupOptions.alpha = 0f;
-        canvasGroupOptions.interactable = false;
-        canvasGroupOptions.blocksRaycasts = false;
-
         canvasGroupPause = transform.GetComponent<CanvasGroup>();
-        canvasGroupPause.alpha = 0f;
-        canvasGroupPause.interactable = false;
-        canvasGroupPause.blocksRaycasts = false;
 
         resume = transform.GetChild(1).GetComponent<Button>();
         restart = transform.GetChild(2).GetComponent<Button>();
-        options = transform.GetChild(3).GetComponent<Button>();
         mainMenu = transform.GetChild(4).GetComponent<Button>();
 
         resume.onClick.AddListener(HidePauseMenu);
         restart.onClick.AddListener(RestartLevel);
-        options.onClick.AddListener(OpenAndCloseOptions);
         mainMenu.onClick.AddListener(GoToMainMenu);
     }
 
@@ -96,30 +83,6 @@ public class PauseMenu : MonoBehaviour
         canvasGroupPause.blocksRaycasts = false;
         Time.timeScale = 1f;
         pauseMenuIsActive = false;
-    }
-
-    public void OpenAndCloseOptions()
-    {
-        if (canvasGroupPause.alpha == 1f)
-        {
-            canvasGroupPause.alpha = 0f;
-            canvasGroupPause.interactable = false;
-            canvasGroupPause.blocksRaycasts = false;
-
-            canvasGroupOptions.alpha = 1f;
-            canvasGroupOptions.interactable = true;
-            canvasGroupOptions.blocksRaycasts = true;
-        }
-        else
-        {
-            canvasGroupPause.alpha = 1f;
-            canvasGroupPause.interactable = true;
-            canvasGroupPause.blocksRaycasts = true;
-
-            canvasGroupOptions.alpha = 0f;
-            canvasGroupOptions.interactable = false;
-            canvasGroupOptions.blocksRaycasts = false;
-        }
     }
 
     void RestartLevel()

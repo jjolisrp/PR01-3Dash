@@ -30,12 +30,18 @@ public class MenuFader : MonoBehaviour
         eventSystem = EventSystem.current;
     }
 
+    //void Update()
+    //{
+    //    eventSystem = EventSystem.current;
+    //}
+
     public void FadeIn()
     {
         canvasGroup.blocksRaycasts = true;
         canvasGroup.interactable = true;
-        canvasGroup.DOFade(1f, 0.5f).SetEase(Ease.Linear);
+        canvasGroup.DOFade(1f, 0.5f).SetEase(Ease.Linear).SetUpdate(true);
 
+        //Esto sirve para que al usar los menús con mando, no se deseleccione la opcion
         eventSystem.SetSelectedGameObject(null);
         eventSystem.SetSelectedGameObject(startSelection);
     }
@@ -44,6 +50,6 @@ public class MenuFader : MonoBehaviour
     {
         canvasGroup.blocksRaycasts = false;
         canvasGroup.interactable = false;
-        canvasGroup.DOFade(0f, 0.5f).SetEase(Ease.Linear);
+        canvasGroup.DOFade(0f, 0.5f).SetEase(Ease.Linear).SetUpdate(true);
     }
 }

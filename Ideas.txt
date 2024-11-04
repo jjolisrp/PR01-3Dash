@@ -11,5 +11,6 @@ Coche: Unity Asset Store
 Town Sign: poly pizza
 Cono: poly pizza
 HDRI: https://polyhaven.com/a/zwartkops_curve_sunset
+sonido de botón: https://pixabay.com/es/sound-effects/087917-enter-button-47235/
 
 preguntar si el cambio de la manera del onjump es correcta
