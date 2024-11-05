@@ -7,9 +7,9 @@ Wheel: https://poly.pizza/m/cV6yx0v8Bfy
 Musica 80's: https://pixabay.com/es/music/sintetizador-lady-of-the-80x27s-128379/
 Musica Energetica BGM: https://pixabay.com/es/music/video-juegos-energetic-bgm-242515/
 Musica Flatout: https://www.youtube.com/watch?v=Hor5UwOpDNY&list=PLKlbTXjy-F6q9qbt1hM78aD9dvXTMOMDG&index=4&ab_channel=SoundBox
-Coche: Unity Asset Store
-Town Sign: poly pizza
-Cono: poly pizza
+Coche: https://assetstore.unity.com/packages/3d/vehicles/cartoon-vehicles-low-poly-cars-free-138160
+Town Sign: https://poly.pizza/m/VSZubp0ru3
+Cono: https://poly.pizza/m/aDIrUbMbW3
 HDRI-Gameplay: https://polyhaven.com/a/zwartkops_curve_sunset
 HDRI-Menu: https://hdri-haven.com/hdri/starry-night-sky-dome
 sonido de botón: https://pixabay.com/es/sound-effects/087917-enter-button-47235/
