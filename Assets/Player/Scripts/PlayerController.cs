@@ -149,12 +149,6 @@ public class PlayerController : MonoBehaviour
                 transform.localScale += new Vector3(0, scaleYValue.y / 30.0f, 0);
             }
         }
-
-        //Esto es para arreglar el error de que el player se qurede pillado con el borde de un bloque por culpa de las ruedas
-        if(playerRb.velocity == Vector3.zero && !isDead)
-        {
-            KillPlayer();
-        }
         
     }
 
@@ -235,6 +229,25 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.layer == 11)
         {
             KillPlayer();
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collision");
+
+        foreach (ContactPoint contact in collision.contacts)
+        {
+            Debug.Log("El collider " + contact.thisCollider.name + "choca con el collider " + contact.otherCollider.name);
+            Debug.Log("La normal es " + contact.normal);
+        }
+
+        for(int i = 0; i < collision.contacts.Length; i++)
+        {
+            if (collision.contacts[i].thisCollider.name == "whell")
+            {
+
+            }
         }
     }
 
