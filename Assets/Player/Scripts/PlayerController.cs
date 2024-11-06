@@ -238,7 +238,7 @@ public class PlayerController : MonoBehaviour
         {
             ContactPoint contact = collision.contacts[i];
 
-            if (contact.thisCollider.name == "whell")
+            if (contact.thisCollider.name == "whell" && !isDead)
             {
                 //Debug.Log("El collider " + contact.thisCollider.name + "choca con el collider " + contact.otherCollider.name);
                 //Debug.Log("La normal es " + contact.normal);
