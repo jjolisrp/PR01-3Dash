@@ -232,21 +232,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionStay(Collision collision)
     {
-        Debug.Log("Collision");
-
-        foreach (ContactPoint contact in collision.contacts)
-        {
-            Debug.Log("El collider " + contact.thisCollider.name + "choca con el collider " + contact.otherCollider.name);
-            Debug.Log("La normal es " + contact.normal);
-        }
-
         for(int i = 0; i < collision.contacts.Length; i++)
         {
-            if (collision.contacts[i].thisCollider.name == "whell")
-            {
+            ContactPoint contact = collision.contacts[i];
 
+            if (contact.thisCollider.name == "whell")
+            {
+                //Debug.Log("El collider " + contact.thisCollider.name + "choca con el collider " + contact.otherCollider.name);
+                //Debug.Log("La normal es " + contact.normal);
+
+                if (contact.normal.y <= 0.8f || contact.normal.y <= -0.8f)
+                {
+                    KillPlayer();
+                }
             }
         }
     }
