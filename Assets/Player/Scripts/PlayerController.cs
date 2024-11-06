@@ -149,6 +149,12 @@ public class PlayerController : MonoBehaviour
                 transform.localScale += new Vector3(0, scaleYValue.y / 30.0f, 0);
             }
         }
+
+        //Esto es para arreglar el error de que el player se qurede pillado con el borde de un bloque por culpa de las ruedas
+        if(playerRb.velocity == Vector3.zero && !isDead)
+        {
+            KillPlayer();
+        }
         
     }
 
