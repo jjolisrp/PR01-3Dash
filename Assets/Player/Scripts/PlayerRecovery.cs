@@ -47,6 +47,24 @@ public class PlayerRecovery : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        for(int i = 0; i < collision.contactCount; i++)
+        {
+            ContactPoint contact = collision.contacts[i];
+
+            if(contact.otherCollider.name == "whell")
+            {
+                PlayerController player = contact.otherCollider.gameObject.GetComponent<PlayerController>();
+
+                if(player != null)
+                {
+                    player.KillPlayer();
+                }
+            }
+        }
+    }
+
     private void OnDisable()
     {
         recoverKey.action.Disable();

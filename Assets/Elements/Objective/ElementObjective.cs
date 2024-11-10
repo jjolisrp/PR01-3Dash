@@ -28,26 +28,31 @@ public class ElementObjective : ElementsManager
         if(canPassWall)
         {
             objectiveWall.SetActive(false);
+            Debug.Log("Desactivando muro de: " + transform.name);
         }
         else if(!canPassWall)
         {
             objectiveWall.SetActive(true);
+            Debug.Log("Activando muro de: " + transform.name);
         }
+
+        if (secondStar.playerTouch == true)
+        {
+            canPassWall = true;
+        }
+
     }
 
     void RestartWall()
     {
         canPassWall = false;
+        playerTouch = false;
     }
 
     protected override void ApplyEffect(PlayerController player)
     {
         playerTouch = true;
-        if(secondStar.playerTouch == false)
-        {
-            //player.KillPlayer();
-            canPassWall = true;
-        }
+        
     }
 
     private void OnDisable()

@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isGrounded;
     private bool isDead;
+    private bool isRestarting;
 
     int layerMask = 1 << 8;
 
@@ -109,14 +110,14 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            //if(jump.action.phase == InputActionPhase.Performed && isGrounded)
-            //{
-            //    Vector3 newVelocity = playerRb.velocity;
-            //    newVelocity.y = jumpSpeed;
-            //    playerRb.velocity = newVelocity;
+            if (jump.action.phase == InputActionPhase.Performed && isGrounded)
+            {
+                Vector3 newVelocity = playerRb.velocity;
+                newVelocity.y = jumpSpeed;
+                playerRb.velocity = newVelocity;
 
-            //    isGrounded = false;
-            //}
+                isGrounded = false;
+            }
         }
     }
 
@@ -154,9 +155,12 @@ public class PlayerController : MonoBehaviour
 
     public void KillPlayer()
     {
+        if (isRestarting) return;
+
         jump.action.Disable(); //Mirar si hay otra manera de hacerlo
 
         isDead = true;
+        isRestarting = true;
 
         if(PlayerDied != null)
         {
@@ -179,6 +183,10 @@ public class PlayerController : MonoBehaviour
         gameManager.RetryLevel();
 
         isDead = false;
+
+        isRestarting = false;
+
+        isSpecialZone = false;
 
         deathCount += 1;
 
@@ -214,14 +222,14 @@ public class PlayerController : MonoBehaviour
 
     void OnJump(InputAction.CallbackContext ctx)
     {
-        if (isGrounded)
-        {
-            Vector3 newVelocity = playerRb.velocity;
-            newVelocity.y = jumpSpeed;
-            playerRb.velocity = newVelocity;
+        //if (isGrounded)
+        //{
+        //    Vector3 newVelocity = playerRb.velocity;
+        //    newVelocity.y = jumpSpeed;
+        //    playerRb.velocity = newVelocity;
 
-            isGrounded = false;
-        }
+        //    isGrounded = false;
+        //}
     }
 
     private void OnTriggerEnter(Collider other)
@@ -238,12 +246,12 @@ public class PlayerController : MonoBehaviour
         {
             ContactPoint contact = collision.contacts[i];
 
-            if (contact.thisCollider.name == "whell" && !isDead)
+            if (contact.thisCollider.name == "whell" && !isDead && contact.otherCollider.gameObject.layer == 11)
             {
                 //Debug.Log("El collider " + contact.thisCollider.name + "choca con el collider " + contact.otherCollider.name);
                 //Debug.Log("La normal es " + contact.normal);
 
-                if (contact.normal.y <= 0.8f || contact.normal.y <= -0.8f)
+                if (contact.normal.y <= 0.8f)
                 {
                     KillPlayer();
                 }
