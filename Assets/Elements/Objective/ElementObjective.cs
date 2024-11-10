@@ -28,14 +28,13 @@ public class ElementObjective : ElementsManager
         if(canPassWall)
         {
             objectiveWall.SetActive(false);
-            Debug.Log("Desactivando muro de: " + transform.name);
         }
         else if(!canPassWall)
         {
             objectiveWall.SetActive(true);
-            Debug.Log("Activando muro de: " + transform.name);
         }
 
+        //Comprueba que los dos objetivos esten siendo tocados a la vez
         if (secondStar.playerTouch == true)
         {
             canPassWall = true;
@@ -52,7 +51,6 @@ public class ElementObjective : ElementsManager
     protected override void ApplyEffect(PlayerController player)
     {
         playerTouch = true;
-        
     }
 
     private void OnDisable()

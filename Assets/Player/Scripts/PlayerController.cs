@@ -155,7 +155,7 @@ public class PlayerController : MonoBehaviour
 
     public void KillPlayer()
     {
-        if (isRestarting) return;
+        if (isRestarting) return; //No permite que se haga más de 1 llamada a la funcion kill player mientras isrestarting este activo
 
         jump.action.Disable(); //Mirar si hay otra manera de hacerlo
 
