@@ -256,6 +256,17 @@ public class PlayerController : MonoBehaviour
                     KillPlayer();
                 }
             }
+            
+            if(contact.thisCollider.name == "whell.001" && !isDead && contact.otherCollider.gameObject.layer == 11)
+            {
+                //Debug.Log("El collider " + contact.thisCollider.name + "choca con el collider " + contact.otherCollider.name);
+                //Debug.Log("La normal es " + contact.normal);
+
+                if (contact.normal.y <= 0.8f)
+                {
+                    KillPlayer();
+                }
+            }
         }
     }
 

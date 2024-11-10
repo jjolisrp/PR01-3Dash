@@ -1,0 +1,67 @@
+{
+    "name": "QTEControls",
+    "maps": [
+        {
+            "name": "QteActionMap",
+            "id": "50b31ee3-b4eb-4b49-8a6b-9ff078ae5a63",
+            "actions": [
+                {
+                    "name": "Caracters",
+                    "type": "Button",
+                    "id": "c29b7812-231c-432d-9841-30bfaf39fade",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b396a53a-0277-4731-b7b3-73f07a826f70",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Caracters",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e1bcebe0-eb22-43da-b3ef-05e992bea547",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Caracters",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "186564f0-728a-469e-bb53-5aa39995cb16",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Caracters",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cc9aa37d-27d6-4b7e-a8fc-2e0c79fb1ec3",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Caracters",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class QTEManager : MonoBehaviour
 {
+    //[SerializeField] InputActionReference QteMap;
     [SerializeField] Material canPass;
     [SerializeField] Material canNotPass;
 
@@ -38,6 +40,8 @@ public class QTEManager : MonoBehaviour
         indiceDetection = 0;
 
         SelectCaracters();
+
+        //QteMap.action.bindings.Count;
     }
 
     // Update is called once per frame
