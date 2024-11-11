@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 
 public class QTEManager : MonoBehaviour
 {
-    [SerializeField] InputActionReference QteMap;
     [SerializeField] Material canPass;
     [SerializeField] Material canNotPass;
 
@@ -22,9 +21,9 @@ public class QTEManager : MonoBehaviour
     int selectCaracter = 0;
     int indiceDetection;
 
-
-
     KeyCode[] keys;
+
+
 
     private void OnEnable()
     {

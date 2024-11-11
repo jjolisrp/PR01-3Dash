@@ -9094,6 +9094,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3175171538361927038, guid: 6c9bd1b7211187549a0acb039715b0d0,
         type: 3}
+      propertyPath: QteMap
+      value: 
+      objectReference: {fileID: -7949576676375046076, guid: 28a0d6228adbf0445b68bcbb46601230,
+        type: 3}
+    - target: {fileID: 3175171538361927038, guid: 6c9bd1b7211187549a0acb039715b0d0,
+        type: 3}
+      propertyPath: caracterI
+      value: 
+      objectReference: {fileID: -7949576676375046076, guid: 28a0d6228adbf0445b68bcbb46601230,
+        type: 3}
+    - target: {fileID: 3175171538361927038, guid: 6c9bd1b7211187549a0acb039715b0d0,
+        type: 3}
+      propertyPath: caracterT
+      value: 
+      objectReference: {fileID: -7582354304543925630, guid: 28a0d6228adbf0445b68bcbb46601230,
+        type: 3}
+    - target: {fileID: 3175171538361927038, guid: 6c9bd1b7211187549a0acb039715b0d0,
+        type: 3}
+      propertyPath: caracterU
+      value: 
+      objectReference: {fileID: 6992840148301527037, guid: 28a0d6228adbf0445b68bcbb46601230,
+        type: 3}
+    - target: {fileID: 3175171538361927038, guid: 6c9bd1b7211187549a0acb039715b0d0,
+        type: 3}
+      propertyPath: caracterY
+      value: 
+      objectReference: {fileID: -7708688901669052057, guid: 28a0d6228adbf0445b68bcbb46601230,
+        type: 3}
+    - target: {fileID: 3175171538361927038, guid: 6c9bd1b7211187549a0acb039715b0d0,
+        type: 3}
       propertyPath: playerController
       value: 
       objectReference: {fileID: 0}
