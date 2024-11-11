@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class QTEManager : MonoBehaviour
 {
-    //[SerializeField] InputActionReference QteMap;
+    [SerializeField] InputActionReference QteMap;
     [SerializeField] Material canPass;
     [SerializeField] Material canNotPass;
 
@@ -15,12 +15,14 @@ public class QTEManager : MonoBehaviour
 
     GameObject caracterGo;
 
-    string[] abecedario = { "T", "Y", "U", "I", "O", "G", "H", "J"};
+    string[] abecedario = {"T", "Y", "U", "I", "O", "G", "H", "J"};
     string[] selectedCaracters;
 
     int caracterNumber = 0;
     int selectCaracter = 0;
     int indiceDetection;
+
+
 
     KeyCode[] keys;
 
