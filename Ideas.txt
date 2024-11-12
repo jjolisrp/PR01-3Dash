@@ -14,4 +14,7 @@ HDRI-Gameplay: https://polyhaven.com/a/zwartkops_curve_sunset
 HDRI-Menu: https://hdri-haven.com/hdri/starry-night-sky-dome
 sonido de botón: https://pixabay.com/es/sound-effects/087917-enter-button-47235/
 
+sonido success: https://pixabay.com/es/sound-effects/success-48018/
+sonido success bell: https://pixabay.com/es/sound-effects/success-bell-6776/
+
 preguntar si el cambio de la manera del onjump es correcta
