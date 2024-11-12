@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
     int layerMask = 1 << 8;
 
     Vector3 moveDirection;
-    Vector3 jumpDirection;
     Vector3 startPosition;
     Vector3 startRbPosition;
     Vector3 startScale;
@@ -63,11 +62,6 @@ public class PlayerController : MonoBehaviour
         jump.action.performed += OnJump;
     }
 
-    private void Awake()
-    {
-        
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -76,7 +70,6 @@ public class PlayerController : MonoBehaviour
 
 
         moveDirection = new Vector3(1, 0, 0);
-        jumpDirection = new Vector3(0, 1, 0);
 
         startPosition = transform.position;
         startRbPosition = playerRb.position;
@@ -215,9 +208,14 @@ public class PlayerController : MonoBehaviour
 
     public void BannerPortalTransform()
     {
-        //Debug.Log("Tranformando al player");
-
         isSpecialZone = true;
+    }
+
+    public void StopPlayer()
+    {
+        moveDirection = Vector3.zero;
+
+        jump.action.Disable();
     }
 
     void OnJump(InputAction.CallbackContext ctx)
@@ -248,8 +246,6 @@ public class PlayerController : MonoBehaviour
 
             if (contact.thisCollider.name == "whell" && !isDead && contact.otherCollider.gameObject.layer == 11)
             {
-                //Debug.Log("El collider " + contact.thisCollider.name + "choca con el collider " + contact.otherCollider.name);
-                //Debug.Log("La normal es " + contact.normal);
 
                 if (contact.normal.y <= 0.8f)
                 {
@@ -259,8 +255,6 @@ public class PlayerController : MonoBehaviour
             
             if(contact.thisCollider.name == "whell.001" && !isDead && contact.otherCollider.gameObject.layer == 11)
             {
-                //Debug.Log("El collider " + contact.thisCollider.name + "choca con el collider " + contact.otherCollider.name);
-                //Debug.Log("La normal es " + contact.normal);
 
                 if (contact.normal.y <= 0.8f)
                 {
@@ -268,11 +262,6 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-    }
-
-    void OnDestroy()
-    {
-
     }
 
     private void OnDisable()

@@ -39,6 +39,7 @@ public class PlayerItems : MonoBehaviour
         nitroKey.action.canceled += ReturnPlayerSpeed;
 
         PlayerController.PlayerRestarted += RestartValuesOnPlayerKilled;
+        GameManager.gameIsPaused += OnPause;
     }
 
     // Start is called before the first frame update
@@ -145,5 +146,6 @@ public class PlayerItems : MonoBehaviour
         nitroKey.action.canceled += ReturnPlayerSpeed;
 
         PlayerController.PlayerRestarted -= RestartValuesOnPlayerKilled;
+        GameManager.gameIsPaused -= OnPause;
     }
 }

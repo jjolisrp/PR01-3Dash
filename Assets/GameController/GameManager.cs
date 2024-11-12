@@ -14,13 +14,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text attemptText;
     [SerializeField] GameObject itemGroup;
 
+    public delegate void OnGamePaused();
+    public static event OnGamePaused gameIsPaused;
+
     Scene scene;
 
     bool isGamePaused;
 
     private void OnEnable()
     {
-        PauseMenu.PauseMenuStateChanging += GamePause;
+
     }
 
     // Start is called before the first frame update
@@ -47,9 +50,9 @@ public class GameManager : MonoBehaviour
         attemptText.text = $"Attempt- {playerController.deathCount}";
     }
 
-    void GamePause()
+    public void GamePause()
     {
-        playerItems.OnPause();
+        gameIsPaused.Invoke();
     }
 
     public void RestartLevel()
@@ -74,6 +77,6 @@ public class GameManager : MonoBehaviour
 
     private void OnDisable()
     {
-        PauseMenu.PauseMenuStateChanging -= GamePause;
+
     }
 }

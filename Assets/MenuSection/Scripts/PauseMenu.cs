@@ -16,9 +16,6 @@ public class PauseMenu : MonoBehaviour
 
     CanvasGroup canvasGroupPause;
 
-    public delegate void OnPauseStateChanging();
-    public static event OnPauseStateChanging PauseMenuStateChanging;
-
     [Header("Debug")]
     public bool pauseMenuIsActive;
 
@@ -61,10 +58,7 @@ public class PauseMenu : MonoBehaviour
             HidePauseMenu();
         }
 
-        if(PauseMenuStateChanging != null)
-        {
-            PauseMenuStateChanging.Invoke();
-        }
+        gameManager.GamePause();
     }
 
     void ShowPauseMenu()
