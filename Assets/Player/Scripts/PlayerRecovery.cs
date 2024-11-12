@@ -15,12 +15,14 @@ public class PlayerRecovery : MonoBehaviour
     {
         recoverKey.action.Enable();
         recoverKey.action.performed += OnPerformed;
+
+        FinalLevel.PlayerFinishedLevel += OnPlayerFinishedLevel;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -32,6 +34,11 @@ public class PlayerRecovery : MonoBehaviour
     void OnPerformed(InputAction.CallbackContext ctx)
     {
         player.RestartPlayer();
+    }
+
+    void OnPlayerFinishedLevel()
+    {
+        recoverKey.action.Disable();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -70,5 +77,6 @@ public class PlayerRecovery : MonoBehaviour
         recoverKey.action.Disable();
         recoverKey.action.performed -= OnPerformed;
 
+        FinalLevel.PlayerFinishedLevel -= OnPlayerFinishedLevel;
     }
 }

@@ -24,6 +24,8 @@ public class PauseMenu : MonoBehaviour
         escape.action.Enable();
 
         escape.action.performed += OpenAndClosePauseMenu;
+
+        FinalLevel.PlayerFinishedLevel += OnPlayerFinishedLevel;
     }
 
     // Start is called before the first frame update
@@ -91,10 +93,17 @@ public class PauseMenu : MonoBehaviour
         gameManager.FinishGame();
     }
 
+    void OnPlayerFinishedLevel()
+    {
+        escape.action.Disable();
+    }
+
     private void OnDisable()
     {
         escape.action.Disable();
 
         escape.action.performed -= OpenAndClosePauseMenu;
+
+        FinalLevel.PlayerFinishedLevel -= OnPlayerFinishedLevel;
     }
 }

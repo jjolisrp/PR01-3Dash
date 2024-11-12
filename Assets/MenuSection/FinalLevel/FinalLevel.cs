@@ -15,6 +15,9 @@ public class FinalLevel : MonoBehaviour
     [SerializeField] AudioSource successAudio;
     [SerializeField] TMP_Text deadCount;
 
+    public delegate void OnPlayerFinishLevel();
+    public static event OnPlayerFinishLevel PlayerFinishedLevel;
+
 
     private void OnEnable()
     {
@@ -42,6 +45,11 @@ public class FinalLevel : MonoBehaviour
         successAudio.Play();
 
         gameManager.GamePause();
+
+        if(PlayerFinishedLevel != null)
+        {
+            PlayerFinishedLevel.Invoke();
+        }
 
         deadCount.text = $"Deads: {player.deathCount -1}";
     }
