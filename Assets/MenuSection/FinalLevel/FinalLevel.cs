@@ -13,7 +13,7 @@ public class FinalLevel : MonoBehaviour
     [SerializeField] MenuFader finalLevelFader;
     [SerializeField] AudioSource gameMusic;
     [SerializeField] AudioSource successAudio;
-    [SerializeField] TMP_Text deadCount;
+    [SerializeField] TMP_Text deathsCount;
 
     public delegate void OnPlayerFinishLevel();
     public static event OnPlayerFinishLevel PlayerFinishedLevel;
@@ -51,7 +51,7 @@ public class FinalLevel : MonoBehaviour
             PlayerFinishedLevel.Invoke();
         }
 
-        deadCount.text = $"Deads: {player.deathCount -1}";
+        deathsCount.text = $"Deaths: {player.deathCount -1}";
     }
 
     private void OnTriggerEnter(Collider other)
