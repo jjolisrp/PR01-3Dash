@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     public GameManager gameManager;
     [SerializeField] GameObject playerVisuals;
+    [SerializeField] GameObject playerWings;
     [SerializeField] ParticleSystem deadParticles;
 
     [Header("Input Actions")]
@@ -187,6 +188,8 @@ public class PlayerController : MonoBehaviour
 
         deadParticles.gameObject.SetActive(false);
 
+        playerWings.SetActive(false);
+
         //Reiniciar las variables que se deban cambiar al reiniciar el player usando delegados y eventos
         if (PlayerRestarted != null)
         {
@@ -204,11 +207,13 @@ public class PlayerController : MonoBehaviour
     {
         isSpecialZone = false;
         transform.localScale = startScale;
+        playerWings.SetActive(false);
     }
 
     public void BannerPortalTransform()
     {
         isSpecialZone = true;
+        playerWings.SetActive(true);
     }
 
     public void StopPlayer()
