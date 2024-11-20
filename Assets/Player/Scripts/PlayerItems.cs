@@ -54,7 +54,15 @@ public class PlayerItems : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isGamePaused)
+        if(fuelQuantity < 0)
+        {
+            playerController.KillPlayer();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (!isGamePaused)
         {
             CheckLimits();
 
@@ -74,11 +82,6 @@ public class PlayerItems : MonoBehaviour
                     playerController.speed = speedWithNitro / 2f;
                 }
             }
-        }
-
-        if(fuelQuantity < 0)
-        {
-            playerController.KillPlayer();
         }
     }
 
