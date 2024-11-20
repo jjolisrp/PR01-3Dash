@@ -37,6 +37,7 @@ public class ParticlesManager : MonoBehaviour
         else if(particle == Particle.PlayerExplosion)
         {
             playerExplosion.transform.position = nextLocation.position + new Vector3(0, 0.5f, 0);
+            playerExplosion.transform.GetChild(1).GetComponent<AudioSource>().Play();
             playerExplosion.Emit(count);
         }
     }
