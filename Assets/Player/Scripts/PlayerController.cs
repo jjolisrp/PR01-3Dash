@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] InputActionReference scaleY;
     [SerializeField] InputActionReference jump;
 
+    [Header("Sound Effects")]
+    [SerializeField] AudioSource jumpEffect;
+
     private Rigidbody playerRb;
     private BoxCollider[] playerColliders;
 
@@ -110,6 +113,8 @@ public class PlayerController : MonoBehaviour
                 newVelocity.y = jumpSpeed;
                 particlesManager.EmitParticles(70, transform, ParticlesManager.Particle.PlayerJump);
                 playerRb.velocity = newVelocity;
+
+                jumpEffect.Play();
 
                 isGrounded = false;
             }

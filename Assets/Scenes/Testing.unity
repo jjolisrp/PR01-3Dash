@@ -94015,6 +94015,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d30e87c6b1679a24ca83040ee0c27c73, type: 3}
+--- !u!82 &1784186775 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3014075872032611715, guid: afb8986d8eebfa445a6407f894e92937,
+    type: 3}
+  m_PrefabInstance: {fileID: 2477292842739294164}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1785522069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -127820,6 +127826,11 @@ PrefabInstance:
       propertyPath: speed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 9193927803211581352, guid: afb8986d8eebfa445a6407f894e92937,
+        type: 3}
+      propertyPath: jumpEffect
+      value: 
+      objectReference: {fileID: 1784186775}
     - target: {fileID: 9193927803211581352, guid: afb8986d8eebfa445a6407f894e92937,
         type: 3}
       propertyPath: gameManager
