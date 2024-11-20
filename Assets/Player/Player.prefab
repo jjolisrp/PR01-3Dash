@@ -4908,7 +4908,7 @@ GameObject:
   - component: {fileID: 3220766845391870648}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5064,7 +5064,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   playerVisuals: {fileID: 6147470874221540338}
   playerWings: {fileID: 2799894178117227146}
-  deadParticles: {fileID: 888066252176499325}
+  particlesManager: {fileID: 0}
   moveY: {fileID: -7658372844058600684, guid: 0ce0643696501bb4fa9fd238267b3576, type: 3}
   scaleY: {fileID: -7259245908341786690, guid: 0ce0643696501bb4fa9fd238267b3576, type: 3}
   jump: {fileID: -6854253663758657573, guid: 0ce0643696501bb4fa9fd238267b3576, type: 3}
