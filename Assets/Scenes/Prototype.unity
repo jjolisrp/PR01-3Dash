@@ -2208,7 +2208,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -24250,8 +24250,9 @@ GameObject:
   - component: {fileID: 685171369}
   - component: {fileID: 685171371}
   - component: {fileID: 685171370}
+  - component: {fileID: 685171372}
   m_Layer: 0
-  m_Name: Evaporation (1)
+  m_Name: Evaporation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24265,12 +24266,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685171368}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.6830128, y: 0.18301265, z: -0.18301262, w: 0.68301266}
-  m_LocalPosition: {x: -175.23936, y: 84.60975, z: 0.45559257}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.70710677}
+  m_LocalPosition: {x: -3.2006989, y: -2.9222405, z: 2.1482964}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1650025813}
+  m_Father: {fileID: 1572691127}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!199 &685171370
 ParticleSystemRenderer:
@@ -24362,7 +24363,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -25293,7 +25294,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 50
+        scalar: 0
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -29127,6 +29128,18 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &685171372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685171368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce51ba7f1a2a3e468b4b2591f34dd58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &692227113
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60678,8 +60691,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 825689839}
   m_HandleRect: {fileID: 825689838}
   m_Direction: 2
-  m_Value: 1.0000017
-  m_Size: 0.77814746
+  m_Value: 1.000002
+  m_Size: 0.75809735
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -61033,6 +61046,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1565731720}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1572691126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1572691127}
+  m_Layer: 0
+  m_Name: Particles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1572691127
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572691126}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -77.6193, y: 4.2022405, z: -31.398296}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 685171369}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1576412447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61831,11 +61876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 960dbdf8c5763bd49b9fe76e7804fd9f,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 685171369}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 960dbdf8c5763bd49b9fe76e7804fd9f,
         type: 3}
@@ -62711,7 +62752,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 8.795227, y: -74.88768}
+  m_AnchoredPosition: {x: 8.795197, y: -74.88768}
   m_SizeDelta: {x: 18.0001, y: 149.7749}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1716820831
@@ -75301,3 +75342,4 @@ SceneRoots:
   - {fileID: 6745743685825468941}
   - {fileID: 52979561}
   - {fileID: 995823662}
+  - {fileID: 1572691127}
