@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     public GameManager gameManager;
     [SerializeField] GameObject playerVisuals;
     [SerializeField] GameObject playerWings;
-    [SerializeField] ParticleSystem deadParticles;
     [SerializeField] ParticlesManager particlesManager;
 
     [Header("Input Actions")]
@@ -166,7 +165,7 @@ public class PlayerController : MonoBehaviour
 
         playerVisuals.SetActive(false);
 
-        deadParticles.gameObject.SetActive(true);
+        particlesManager.EmitParticles(1, transform, ParticlesManager.Particle.PlayerExplosion);
 
         playerRb.velocity = new Vector3(0, 0, 0);
 
@@ -186,8 +185,6 @@ public class PlayerController : MonoBehaviour
         deathCount += 1;
 
         playerVisuals.SetActive(true);
-
-        deadParticles.gameObject.SetActive(false);
 
         playerWings.SetActive(false);
 

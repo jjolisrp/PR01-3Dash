@@ -7,10 +7,12 @@ using UnityEngine;
 public class ParticlesManager : MonoBehaviour
 {
     [SerializeField] ParticleSystem evaporation;
+    [SerializeField] ParticleSystem playerExplosion;
 
     public enum Particle
     {
-        Evaporation
+        Evaporation,
+        PlayerExplosion
     }
 
     // Start is called before the first frame update
@@ -31,6 +33,11 @@ public class ParticlesManager : MonoBehaviour
         {
             evaporation.transform.position = nextLocation.position;
             evaporation.Emit(count);
+        }
+        else if(particle == Particle.PlayerExplosion)
+        {
+            playerExplosion.transform.position = nextLocation.position + new Vector3(0, 0.5f, 0);
+            playerExplosion.Emit(count);
         }
     }
 }
