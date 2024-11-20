@@ -208,14 +208,14 @@ public class PlayerController : MonoBehaviour
     {
         isSpecialZone = false;
         transform.localScale = startScale;
-        playerWings.SetActive(false);
-
         particlesManager.EmitParticles(50, transform, ParticlesManager.Particle.Evaporation);
+        playerWings.SetActive(false);
     }
 
     public void BannerPortalTransform()
     {
         isSpecialZone = true;
+        particlesManager.EmitParticles(50, transform, ParticlesManager.Particle.Evaporation);
         playerWings.SetActive(true);
     }
 
