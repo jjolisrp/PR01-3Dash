@@ -59881,6 +59881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cbb2ae68b988ee4487410c353d66e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particlesManager: {fileID: 1572691128}
 --- !u!65 &1474434506
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -61055,8 +61056,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1572691127}
+  - component: {fileID: 1572691128}
   m_Layer: 0
-  m_Name: Particles
+  m_Name: ParticlesManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61078,6 +61080,19 @@ Transform:
   - {fileID: 685171369}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1572691128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572691126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f33893b70e243b046919d571469b7f5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  evaporation: {fileID: 685171371}
 --- !u!1001 &1576412447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61872,7 +61887,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 960dbdf8c5763bd49b9fe76e7804fd9f,
         type: 3}
       propertyPath: m_Name
-      value: Fuel (1)
+      value: Fuel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -61911,6 +61926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c268fa104628da46b568d0c29a5d4dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particlesManager: {fileID: 1572691128}
 --- !u!65 &1650025816
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -75320,6 +75336,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1013232748}
+  - {fileID: 1572691127}
   - {fileID: 1823688467}
   - {fileID: 157207114}
   - {fileID: 432432461}
@@ -75342,4 +75359,3 @@ SceneRoots:
   - {fileID: 6745743685825468941}
   - {fileID: 52979561}
   - {fileID: 995823662}
-  - {fileID: 1572691127}

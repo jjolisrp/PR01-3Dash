@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject playerVisuals;
     [SerializeField] GameObject playerWings;
     [SerializeField] ParticleSystem deadParticles;
+    [SerializeField] ParticlesManager particlesManager;
 
     [Header("Input Actions")]
     [SerializeField] InputActionReference moveY;
@@ -208,6 +209,8 @@ public class PlayerController : MonoBehaviour
         isSpecialZone = false;
         transform.localScale = startScale;
         playerWings.SetActive(false);
+
+        particlesManager.EmitParticles(50, transform, ParticlesManager.Particle.Evaporation);
     }
 
     public void BannerPortalTransform()

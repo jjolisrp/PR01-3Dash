@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FuelItem : ItemsManager
 {
+    [SerializeField] ParticlesManager particlesManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,8 @@ public class FuelItem : ItemsManager
         //Debug.Log("He colisionado con un fuel");
 
         items.RefillFuel();
+
+        particlesManager.EmitParticles(50, transform, ParticlesManager.Particle.Evaporation);
     }
 
     protected override void DeactivateItem()

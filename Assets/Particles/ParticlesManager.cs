@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class ParticlesManager : MonoBehaviour
 {
     [SerializeField] ParticleSystem evaporation;
@@ -23,7 +25,7 @@ public class ParticlesManager : MonoBehaviour
         
     }
 
-    void EmitParticles(int count, Transform nextLocation, Particle particle)
+    public void EmitParticles(int count, Transform nextLocation, Particle particle)
     {
         if(particle == Particle.Evaporation)
         {
