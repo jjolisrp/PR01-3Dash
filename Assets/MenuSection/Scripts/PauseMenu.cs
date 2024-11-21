@@ -86,7 +86,6 @@ public class PauseMenu : MonoBehaviour
 
     void GoToMainMenu()
     {
-        Time.timeScale = 1f;
         gameManager.FinishGame();
     }
 
