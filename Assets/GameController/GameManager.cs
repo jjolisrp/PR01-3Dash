@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     public delegate void OnGamePaused();
     public static event OnGamePaused gameIsPaused;
 
+    public delegate void OnGameDespause();
+    public static event OnGameDespause gameDespause;
+
     Scene scene;
 
     bool isGamePaused;
@@ -52,11 +55,19 @@ public class GameManager : MonoBehaviour
 
     public void GamePause()
     {
+        Time.timeScale = 0f;
         gameIsPaused.Invoke();
+    }
+
+    public void GameDespause()
+    {
+        Time.timeScale = 1f;
+        gameDespause.Invoke();
     }
 
     public void RestartLevel()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(scene.name, LoadSceneMode.Single);
     }
 

@@ -59,31 +59,28 @@ public class PauseMenu : MonoBehaviour
         {
             HidePauseMenu();
         }
-
-        gameManager.GamePause();
     }
 
     void ShowPauseMenu()
     {
+        gameManager.GamePause();
         canvasGroupPause.alpha = 1f;
         canvasGroupPause.interactable = true;
         canvasGroupPause.blocksRaycasts = true;
-        Time.timeScale = 0f;
         pauseMenuIsActive = true;
     }
 
     void HidePauseMenu()
     {
+        gameManager.GameDespause();
         canvasGroupPause.alpha = 0f;
         canvasGroupPause.interactable = false;
         canvasGroupPause.blocksRaycasts = false;
-        Time.timeScale = 1f;
         pauseMenuIsActive = false;
     }
 
     void RestartLevel()
     {
-        Time.timeScale = 1f;
         gameManager.RestartLevel();
     }
 

@@ -40,6 +40,7 @@ public class PlayerItems : MonoBehaviour
 
         PlayerController.PlayerRestarted += RestartValuesOnPlayerKilled;
         GameManager.gameIsPaused += OnPause;
+        GameManager.gameDespause += OnDespause;
     }
 
     // Start is called before the first frame update
@@ -129,7 +130,12 @@ public class PlayerItems : MonoBehaviour
 
     public void OnPause()
     {
-        isGamePaused = !isGamePaused;
+        isGamePaused = true;
+    }
+
+    public void OnDespause()
+    {
+        isGamePaused = false;
     }
 
     void RestartValuesOnPlayerKilled()
@@ -150,5 +156,6 @@ public class PlayerItems : MonoBehaviour
 
         PlayerController.PlayerRestarted -= RestartValuesOnPlayerKilled;
         GameManager.gameIsPaused -= OnPause;
+        GameManager.gameDespause -= OnDespause;
     }
 }
