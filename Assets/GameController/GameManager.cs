@@ -46,7 +46,8 @@ public class GameManager : MonoBehaviour
     public void FinishGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        //SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        LoadingScene.instance.LoadScene("MainMenu");
     }
 
     void InGame()

@@ -56,6 +56,7 @@ public class LoadingScene : MonoBehaviour
             while (!loadOperation.isDone);
 
             currentScene = SceneManager.GetSceneAt(1);
+            Debug.Log(currentScene);
             SceneManager.SetActiveScene(currentScene);
         }
 
