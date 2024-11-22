@@ -34,8 +34,11 @@ public class LoadingScene : MonoBehaviour
             while (fadeTween.IsPlaying());
         }
 
+        currentScene = SceneManager.GetSceneAt(1);
+        Debug.Log("Destruyendo escena");
+
         //Descargar la escena actual
-        if(currentScene.isLoaded)
+        if (currentScene.isLoaded)
         {
             AsyncOperation unloadOperation = SceneManager.UnloadSceneAsync(currentScene);
             do
@@ -56,7 +59,7 @@ public class LoadingScene : MonoBehaviour
             while (!loadOperation.isDone);
 
             currentScene = SceneManager.GetSceneAt(1);
-            Debug.Log(currentScene);
+            Debug.Log(currentScene.name);
             SceneManager.SetActiveScene(currentScene);
         }
 

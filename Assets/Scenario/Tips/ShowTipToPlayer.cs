@@ -28,7 +28,7 @@ public class ShowTipToPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && !keyWasAlreadyPressed)
+        if(Input.GetKeyDown(KeyCode.Return) && !keyWasAlreadyPressed)
         {
             keyWasAlreadyPressed = true;
             DespauseGame();
@@ -37,7 +37,6 @@ public class ShowTipToPlayer : MonoBehaviour
 
     void ShowTipAnStopGame()
     {
-        Time.timeScale = 0f;
         gameManager.GamePause();
 
         tipText.enabled = true;
@@ -46,8 +45,7 @@ public class ShowTipToPlayer : MonoBehaviour
 
     void DespauseGame()
     {
-        Time.timeScale = 1f;
-        gameManager.GamePause();
+        gameManager.GameDespause();
     }
 
     private void OnTriggerEnter(Collider other)
