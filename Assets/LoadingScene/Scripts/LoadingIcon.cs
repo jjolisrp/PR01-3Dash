@@ -9,7 +9,7 @@ public class LoadingIcon : MonoBehaviour
     void Start()
     {
         transform.DORotate(Vector3.forward * 360f, 3f, RotateMode.FastBeyond360)
-            .SetEase(Ease.OutBounce)
+            .SetEase(Ease.Linear)
             .SetLoops(-1);
     }
 

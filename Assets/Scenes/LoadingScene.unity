@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 610.4285, g: 744.2121, b: 828.2615, a: 1}
+  m_IndirectSpecularColor: {r: 262.38358, g: 325.10843, b: 430.30963, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd2a1a8b76f73714684278922a610438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstSceneToLoad: SplashCompanyName
   canvasGroup: {fileID: 927877920}
 --- !u!1 &874177890
 GameObject:
@@ -368,8 +369,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -149, y: 106}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -172, y: 147.89}
+  m_SizeDelta: {x: 295.79, y: 295.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1106960286
 MonoBehaviour:
@@ -403,9 +404,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: fe65c8c8dca0a254d8766f4a6c5740d4, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1

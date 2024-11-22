@@ -5,16 +5,55 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 using UnityEditor;
+using System;
 
 public class LoadingScene : MonoBehaviour
 {
+    [SerializeField] string firstSceneToLoad;
     [SerializeField] CanvasGroup canvasGroup;
     Scene currentScene;
 
     static public LoadingScene instance;
+    static bool wasLoadedOnPlayModeStateChange;
+
+#if UNITY_EDITOR
+    [InitializeOnLoadMethod]
+    static void ListenToApplicationModeChange()
+    {
+        EditorApplication.playModeStateChanged += OnPlayModeStateChange;
+    }
+
+    private static void OnPlayModeStateChange(PlayModeStateChange change)
+    {
+        wasLoadedOnPlayModeStateChange = false;
+        if (change == PlayModeStateChange.EnteredPlayMode)
+        {
+            if (SceneManager.GetSceneAt(0).name != "LoadingScene")
+            {
+                SceneManager.LoadScene("LoadingScene", LoadSceneMode.Additive);
+                wasLoadedOnPlayModeStateChange = true;
+                Scene loadingScene = SceneManager.GetSceneAt(SceneManager.loadedSceneCount - 1);
+            }
+        }
+    }
+#endif
+
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        if (!wasLoadedOnPlayModeStateChange)
+        {
+            LoadScene(firstSceneToLoad);
+        }
+        else
+        {
+            currentScene = SceneManager.GetSceneAt(0);
+            Tween fadeTween = canvasGroup.DOFade(0f, 0f);
+        }
     }
 
     public void LoadScene(string sceneName)
@@ -33,9 +72,6 @@ public class LoadingScene : MonoBehaviour
             }
             while (fadeTween.IsPlaying());
         }
-
-        currentScene = SceneManager.GetSceneAt(1);
-        Debug.Log("Destruyendo escena");
 
         //Descargar la escena actual
         if (currentScene.isLoaded)
@@ -58,13 +94,12 @@ public class LoadingScene : MonoBehaviour
             }
             while (!loadOperation.isDone);
 
-            currentScene = SceneManager.GetSceneAt(1);
-            Debug.Log(currentScene.name);
+            currentScene = SceneManager.GetSceneAt(SceneManager.loadedSceneCount - 1);
             SceneManager.SetActiveScene(currentScene);
         }
 
         float timeElapsedLoading = Time.realtimeSinceStartup - timeBeforeLoad;
-        if(timeElapsedLoading < 3f)
+        if (timeElapsedLoading < 3f)
         {
             yield return new WaitForSeconds(3f - timeElapsedLoading);
         }
@@ -79,9 +114,12 @@ public class LoadingScene : MonoBehaviour
             while (fadeTween.IsPlaying());
         }
     }
-    //[MenuItem("LoadingScene/Debug/Change to MainMenu")]
-    //static public void DebugChangeToMainMenuScene()
-    //{
-    //    LoadingScene.instance.LoadScene("MainMenu");
-    //}
+
+#if UNITY_EDITOR
+    [MenuItem("LoadingScene/Debug/Change to MainMenu")]
+    static public void DebugChangeToMainMenuScene()
+    {
+        LoadingScene.instance.LoadScene("MainMenu");
+    }
+#endif
 }
