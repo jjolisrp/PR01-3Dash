@@ -79,9 +79,9 @@ public class LoadingScene : MonoBehaviour
             while (fadeTween.IsPlaying());
         }
     }
-    [MenuItem("LoadingScene/Debug/Change to MainMenu")]
-    static public void DebugChangeToMainMenuScene()
-    {
-        LoadingScene.instance.LoadScene("MainMenu");
-    }
+    //[MenuItem("LoadingScene/Debug/Change to MainMenu")]
+    //static public void DebugChangeToMainMenuScene()
+    //{
+    //    LoadingScene.instance.LoadScene("MainMenu");
+    //}
 }
