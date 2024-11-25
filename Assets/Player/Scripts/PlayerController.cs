@@ -38,8 +38,6 @@ public class PlayerController : MonoBehaviour
     int layerMask = 1 << 8;
 
     Vector3 moveDirection;
-    Vector3 startPosition;
-    Vector3 startRbPosition;
     Vector3 startScale;
     Vector3 frontRaycastPosition;
     Vector3 backRaycastPosition;
@@ -53,9 +51,11 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed;
     public float ownGravity;
 
-    [Header("Only Read")]
+    [Header("Debug")]
     public int deathCount;
     public bool isSpecialZone;
+    public Vector3 startPosition;
+    public Vector3 startRbPosition;
 
     private void OnEnable()
     {

@@ -6,6 +6,7 @@ using TMPro;
 public class ShowTipToPlayer : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
+    [SerializeField] ModMenu modMenu;
 
     TMP_Text tipText;
     GameObject background;
@@ -58,6 +59,7 @@ public class ShowTipToPlayer : MonoBehaviour
             {
                 isActive = true;
                 keyWasAlreadyPressed = false;
+                modMenu.ChangePlayerSpawnPoint();
                 ShowTipAnStopGame();
             }
         }
