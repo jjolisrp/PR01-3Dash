@@ -62677,6 +62677,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1539547701401198972, guid: 9b1caa85be0c4ae498bb613d4b60123c,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2612501927560893886, guid: 9b1caa85be0c4ae498bb613d4b60123c,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2854118303020811665, guid: 9b1caa85be0c4ae498bb613d4b60123c,
         type: 3}
       propertyPath: m_Name
@@ -62780,6 +62790,11 @@ PrefabInstance:
     - target: {fileID: 4522611183162644815, guid: 9b1caa85be0c4ae498bb613d4b60123c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303424968209386733, guid: 9b1caa85be0c4ae498bb613d4b60123c,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -104373,6 +104388,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2782219892861196754, guid: 07b2aa3e645d30c47be883b58ce40356,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3566123383254755580, guid: 07b2aa3e645d30c47be883b58ce40356,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -104391,6 +104411,11 @@ PrefabInstance:
     - target: {fileID: 5032045270210531382, guid: 07b2aa3e645d30c47be883b58ce40356,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071475016517144993, guid: 07b2aa3e645d30c47be883b58ce40356,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5946812007188845538, guid: 07b2aa3e645d30c47be883b58ce40356,
@@ -104418,9 +104443,19 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8101170705038943966, guid: 07b2aa3e645d30c47be883b58ce40356,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8304392393008783769, guid: 07b2aa3e645d30c47be883b58ce40356,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109061238672491665, guid: 07b2aa3e645d30c47be883b58ce40356,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
