@@ -11315,7 +11315,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Prueba a hacerte grande para tocar las dos estrellas
+  m_text: 'Prueba a hacerte grande para tocar las dos estrellas
+
+    Presiona "Enter"
+    para continuar'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 194a4ca679f984d4cabe89c582257876, type: 2}
   m_sharedMaterial: {fileID: -4820033339043620741, guid: 194a4ca679f984d4cabe89c582257876,
@@ -18628,7 +18631,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Prueba a hacerte peque\xF1o para pasar por los huecos"
+  m_text: "Prueba a hacerte peque\xF1o para pasar por los huecos\nPresiona \"Enter\"
+    para continuar"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 194a4ca679f984d4cabe89c582257876, type: 2}
   m_sharedMaterial: {fileID: -4820033339043620741, guid: 194a4ca679f984d4cabe89c582257876,
@@ -25547,7 +25551,7 @@ RectTransform:
   m_GameObject: {fileID: 475504814}
   m_LocalRotation: {x: -0.70710665, y: -0.00000002235174, z: -0.00000017881392, w: 0.70710695}
   m_LocalPosition: {x: 0, y: 0, z: 0.1}
-  m_LocalScale: {x: 2.0014799, y: 1, z: 0.49585006}
+  m_LocalScale: {x: 2.0014799, y: 1, z: 0.56083393}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2051233616}
@@ -32400,7 +32404,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: El objeto de gasolina es necesario para que el vehiculo continue avanzando
+  m_text: 'El objeto de gasolina es necesario para que el vehiculo continue avanzando
+
+    Presiona
+    "Enter" para continuar'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 194a4ca679f984d4cabe89c582257876, type: 2}
   m_sharedMaterial: {fileID: -4820033339043620741, guid: 194a4ca679f984d4cabe89c582257876,
@@ -34241,7 +34248,7 @@ RectTransform:
   m_LocalRotation: {x: -0.70710665, y: -0.0000000074505797, z: -0.00000017881392,
     w: 0.70710695}
   m_LocalPosition: {x: 0, y: 0, z: 0.1}
-  m_LocalScale: {x: 2.001481, y: 1, z: 0.4837102}
+  m_LocalScale: {x: 2.001481, y: 1, z: 0.5752282}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 634416660}
@@ -37080,7 +37087,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Los conos son capaces de matarte si llegas a tocarlos :0
+  m_text: 'Los conos son capaces de matarte si llegas a tocarlos :0
+
+    Presiona
+    "Enter" para continuar'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 194a4ca679f984d4cabe89c582257876, type: 2}
   m_sharedMaterial: {fileID: -4820033339043620741, guid: 194a4ca679f984d4cabe89c582257876,
@@ -44086,7 +44096,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Usa W/S para moverte libremente
+  m_text: 'Usa W/S para moverte libremente
+
+    Presiona "Enter" para continuar'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 194a4ca679f984d4cabe89c582257876, type: 2}
   m_sharedMaterial: {fileID: -4820033339043620741, guid: 194a4ca679f984d4cabe89c582257876,
@@ -101530,7 +101542,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Para cruzar el siguiente muro, deber\xE1s presionar las teclas que salen
-    por pantalla"
+    por pantalla\nPresiona \"Enter\" para continuar"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 194a4ca679f984d4cabe89c582257876, type: 2}
   m_sharedMaterial: {fileID: -4820033339043620741, guid: 194a4ca679f984d4cabe89c582257876,
@@ -102874,7 +102886,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Usa FlechaArriba/FlechaAbajo para cambiar el tama\xF1o del vehiculo"
+  m_text: "Usa FlechaArriba/FlechaAbajo para cambiar el tama\xF1o del vehiculo\nPresiona
+    \"Enter\" para continuar"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 194a4ca679f984d4cabe89c582257876, type: 2}
   m_sharedMaterial: {fileID: -4820033339043620741, guid: 194a4ca679f984d4cabe89c582257876,
