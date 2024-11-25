@@ -16,6 +16,7 @@ public class SelectLevel : MonoBehaviour
 
     void LoadLevel()
     {
-        SceneManager.LoadScene(levelName, LoadSceneMode.Single);
+        //SceneManager.LoadScene(levelName, LoadSceneMode.Single);
+        LoadingScene.instance.LoadScene(levelName, true);
     }
 }

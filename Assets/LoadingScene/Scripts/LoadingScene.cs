@@ -47,7 +47,7 @@ public class LoadingScene : MonoBehaviour
     {
         if (!wasLoadedOnPlayModeStateChange)
         {
-            LoadScene(firstSceneToLoad);
+            LoadScene(firstSceneToLoad, false);
         }
         else
         {
@@ -56,14 +56,15 @@ public class LoadingScene : MonoBehaviour
         }
     }
 
-    public void LoadScene(string sceneName)
+    public void LoadScene(string sceneName, bool iconValue)
     {
-        StartCoroutine(LoadSceneCorutine(sceneName));
+        StartCoroutine(LoadSceneCorutine(sceneName, iconValue));
     }
 
-    public IEnumerator LoadSceneCorutine(string sceneName)
+    public IEnumerator LoadSceneCorutine(string sceneName, bool useLoadingIcon)
     {
         //Fade
+        if(useLoadingIcon)
         {
             Tween fadeTween = canvasGroup.DOFade(1f, 1f);
             do
@@ -105,6 +106,7 @@ public class LoadingScene : MonoBehaviour
         }
 
         //Fade
+        if(useLoadingIcon)
         {
             Tween fadeTween = canvasGroup.DOFade(0f, 1f);
             do
@@ -119,7 +121,7 @@ public class LoadingScene : MonoBehaviour
     [MenuItem("LoadingScene/Debug/Change to MainMenu")]
     static public void DebugChangeToMainMenuScene()
     {
-        LoadingScene.instance.LoadScene("MainMenu");
+        LoadingScene.instance.LoadScene("MainMenu", true);
     }
 #endif
 }

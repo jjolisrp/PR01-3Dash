@@ -34,7 +34,8 @@ public class MainMenu : MonoBehaviour
 
     void OnPlay()
     {
-        SceneManager.LoadScene(playScene, LoadSceneMode.Single);
+        //SceneManager.LoadScene(playScene, LoadSceneMode.Single);
+        LoadingScene.instance.LoadScene(playScene, false);
     }
 
     void OnOptions()

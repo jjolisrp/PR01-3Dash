@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     public void FinishGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        LoadingScene.instance.LoadScene("MainMenu", true);
     }
 
     void InGame()
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
     public void RestartLevel()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(scene.name, LoadSceneMode.Single);
+        LoadingScene.instance.LoadScene(SceneManager.GetActiveScene().name, true);
     }
 
     public void RetryLevel()

@@ -53,7 +53,8 @@ public class NavigateToAfterTimeOrPress : MonoBehaviour
     {
         if(!sceneIsCalled)
         {
-            LoadingScene.instance.LoadScene(nextSceneName);
+            sceneIsCalled = true;
+            LoadingScene.instance.LoadScene(nextSceneName, false);
         }
     }
 
