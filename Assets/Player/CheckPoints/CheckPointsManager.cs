@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ModMenu : MonoBehaviour
+public class CheckPointsManager : MonoBehaviour
 {
     [SerializeField] PlayerController playerController;
+    [SerializeField] PlayerItems playerItems;
+    [SerializeField] GameObject checkpointFlag;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-
+        checkpointFlag = transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -18,6 +19,7 @@ public class ModMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F1))
         {
             ChangePlayerSpawnPoint();
+            playerItems.SaveItemsValueOnCheckPoint();
         }
     }
 

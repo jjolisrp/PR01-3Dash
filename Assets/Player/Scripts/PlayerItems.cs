@@ -30,6 +30,8 @@ public class PlayerItems : MonoBehaviour
     float speedWithNitro;
     float startFuelQuantity;
     float startNitroQuantity;
+    float fuelCheckPoint = 0;
+    float nitroCheckPoint = 0;
 
     bool isGamePaused;
 
@@ -38,7 +40,7 @@ public class PlayerItems : MonoBehaviour
         nitroKey.action.Enable();
         nitroKey.action.canceled += ReturnPlayerSpeed;
 
-        PlayerController.PlayerRestarted += RestartValuesOnPlayerKilled;
+        PlayerController.PlayerRestarted += RestartValuesOnPlayerRestarted;
         GameManager.gameIsPaused += OnPause;
         GameManager.gameDespause += OnDespause;
     }
@@ -138,7 +140,7 @@ public class PlayerItems : MonoBehaviour
         isGamePaused = false;
     }
 
-    void RestartValuesOnPlayerKilled()
+    void RestartValuesOnPlayerRestarted()
     {
         fuelQuantity = startFuelQuantity;
         nitroQuantity = startNitroQuantity;
@@ -149,12 +151,18 @@ public class PlayerItems : MonoBehaviour
         playerController.speed = speedWithNitro / 2f;
     }
 
+    public void SaveItemsValueOnCheckPoint()
+    {
+        startFuelQuantity = fuelQuantity;
+        startNitroQuantity = nitroQuantity;
+    }
+
     private void OnDisable()
     {
         nitroKey.action.Disable();
         nitroKey.action.canceled += ReturnPlayerSpeed;
 
-        PlayerController.PlayerRestarted -= RestartValuesOnPlayerKilled;
+        PlayerController.PlayerRestarted -= RestartValuesOnPlayerRestarted;
         GameManager.gameIsPaused -= OnPause;
         GameManager.gameDespause -= OnDespause;
     }

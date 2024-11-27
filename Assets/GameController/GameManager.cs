@@ -80,6 +80,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public Vector3 GetPlayerPosition(){return playerController.transform.position;}
+
     void StartGame()
     {
         attemptText.text = $"Attempt {1}";

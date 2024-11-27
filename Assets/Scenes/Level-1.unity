@@ -4257,6 +4257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 1048363266}
+  playerItems: {fileID: 1048363269}
 --- !u!4 &76907687
 Transform:
   m_ObjectHideFlags: 0
@@ -11491,7 +11492,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1013232749}
-  modMenu: {fileID: 76907686}
 --- !u!65 &260154728
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18806,7 +18806,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1013232749}
-  modMenu: {fileID: 76907686}
 --- !u!65 &319156654
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32582,7 +32581,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1013232749}
-  modMenu: {fileID: 76907686}
 --- !u!65 &634416664
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37266,7 +37264,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1013232749}
-  modMenu: {fileID: 76907686}
 --- !u!65 &751199305
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39444,7 +39441,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1013232749}
-  modMenu: {fileID: 76907686}
 --- !u!65 &827157963
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -44276,7 +44272,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1013232749}
-  modMenu: {fileID: 76907686}
 --- !u!65 &958632377
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -64639,7 +64634,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1013232749}
-  modMenu: {fileID: 76907686}
 --- !u!65 &1480260194
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -101737,7 +101731,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1013232749}
-  modMenu: {fileID: 76907686}
 --- !u!65 &2051233620
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -103083,7 +103076,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1013232749}
-  modMenu: {fileID: 76907686}
 --- !u!65 &2088733060
 BoxCollider:
   m_ObjectHideFlags: 0

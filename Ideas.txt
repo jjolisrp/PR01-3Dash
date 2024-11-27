@@ -17,5 +17,6 @@ sonido de botón: https://pixabay.com/es/sound-effects/087917-enter-button-47235
 sonido success: https://pixabay.com/es/sound-effects/success-48018/
 sonido success bell: https://pixabay.com/es/sound-effects/success-bell-6776/
 alas de murciélago: https://poly.pizza/m/ci_ZOYQ5fRM
+flag: https://poly.pizza/m/0fE2T9eRA9V
 
 preguntar si el cambio de la manera del onjump es correcta
