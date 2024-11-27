@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class CheckPointsManager : MonoBehaviour
 {
-    [SerializeField] PlayerController playerController;
-    [SerializeField] PlayerItems playerItems;
     [SerializeField] GameObject checkpointFlag;
+
+    Vector3 newPositionPlayer;
+    Vector3 newPositionRbPlayer;
 
     private void OnEnable()
     {
@@ -19,13 +20,18 @@ public class CheckPointsManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F1))
         {
             ChangePlayerSpawnPoint();
-            playerItems.SaveItemsValueOnCheckPoint();
+            GameManager.instance.SetNewItemsStartQuantity();
         }
     }
 
     public void ChangePlayerSpawnPoint()
     {
-        playerController.startPosition = playerController.transform.position;
-        playerController.startRbPosition = playerController.transform.GetComponent<Rigidbody>().position;
+        newPositionPlayer = GameManager.instance.GetPlayerPosition();
+        newPositionRbPlayer = GameManager.instance.GetPlayerRbPosition();
+
+        GameManager.instance.SetPlayerPosition(newPositionPlayer);
+        GameManager.instance.SetPlayerRbPosition(newPositionRbPlayer);
+
+        checkpointFlag.transform.position = newPositionPlayer + new Vector3(0f, 0.5f, 0f);
     }
 }

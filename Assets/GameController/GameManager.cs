@@ -20,9 +20,16 @@ public class GameManager : MonoBehaviour
     public delegate void OnGameDespause();
     public static event OnGameDespause gameDespause;
 
+    static public GameManager instance;
+
     Scene scene;
 
     bool isGamePaused;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     private void OnEnable()
     {
@@ -80,7 +87,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public Vector3 GetPlayerPosition(){return playerController.transform.position;}
+    public Vector3 GetPlayerPosition() { return playerController.transform.position; }
+    public Vector3 GetPlayerRbPosition() { return playerController.transform.GetComponent<Rigidbody>().position; }
+    public void SetPlayerPosition(Vector3 newPosition) { playerController.startPosition = newPosition; }
+    public void SetPlayerRbPosition(Vector3 newPosition) { playerController.startRbPosition = newPosition; }
+
+    public void SetNewItemsStartQuantity() { playerItems.SaveItemsValueOnCheckPoint(); }
 
     void StartGame()
     {
