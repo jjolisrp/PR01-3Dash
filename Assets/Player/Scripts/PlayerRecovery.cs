@@ -6,9 +6,9 @@ using UnityEngine.InputSystem;
 public class PlayerRecovery : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] GameManager gameManager;
     [SerializeField] PlayerController player;
 
+    [Header("Input Actions")]
     [SerializeField] InputActionReference recoverKey;
 
     private void OnEnable()

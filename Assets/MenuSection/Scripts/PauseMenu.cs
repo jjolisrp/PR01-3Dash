@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] GameManager gameManager;
+    [Header("Input Actions")]
     [SerializeField] InputActionReference escape;
 
     Button resume;
@@ -63,7 +63,7 @@ public class PauseMenu : MonoBehaviour
 
     void ShowPauseMenu()
     {
-        gameManager.GamePause();
+        GameManager.instance.GamePause();
         canvasGroupPause.alpha = 1f;
         canvasGroupPause.interactable = true;
         canvasGroupPause.blocksRaycasts = true;
@@ -72,7 +72,7 @@ public class PauseMenu : MonoBehaviour
 
     void HidePauseMenu()
     {
-        gameManager.GameDespause();
+        GameManager.instance.GameDespause();
         canvasGroupPause.alpha = 0f;
         canvasGroupPause.interactable = false;
         canvasGroupPause.blocksRaycasts = false;
@@ -81,12 +81,12 @@ public class PauseMenu : MonoBehaviour
 
     void RestartLevel()
     {
-        gameManager.RestartLevel();
+        GameManager.instance.RestartLevel();
     }
 
     void GoToMainMenu()
     {
-        gameManager.FinishGame();
+        GameManager.instance.FinishGame();
     }
 
     void OnPlayerFinishedLevel()

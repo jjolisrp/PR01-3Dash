@@ -9,7 +9,6 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("References")]
-    public GameManager gameManager;
     [SerializeField] GameObject playerVisuals;
     [SerializeField] GameObject playerWings;
     [SerializeField] ParticlesManager particlesManager;
@@ -180,7 +179,7 @@ public class PlayerController : MonoBehaviour
 
     public void RestartPlayer()
     {
-        gameManager.RetryLevel();
+        GameManager.instance.RetryLevel();
 
         isDead = false;
 

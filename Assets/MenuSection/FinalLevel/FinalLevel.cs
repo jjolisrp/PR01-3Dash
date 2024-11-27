@@ -6,7 +6,7 @@ using TMPro;
 
 public class FinalLevel : MonoBehaviour
 {
-    [SerializeField] GameManager gameManager;
+    [Header("References")]
     [SerializeField] PlayerController player;
     [SerializeField] Button restartButton;
     [SerializeField] Button mainMenuButton;
@@ -18,11 +18,10 @@ public class FinalLevel : MonoBehaviour
     public delegate void OnPlayerFinishLevel();
     public static event OnPlayerFinishLevel PlayerFinishedLevel;
 
-
     private void OnEnable()
     {
-        restartButton.onClick.AddListener(gameManager.RestartLevel);
-        mainMenuButton.onClick.AddListener(gameManager.FinishGame);
+        restartButton.onClick.AddListener(GameManager.instance.RestartLevel);
+        mainMenuButton.onClick.AddListener(GameManager.instance.FinishGame);
     }
 
     // Start is called before the first frame update
@@ -44,7 +43,7 @@ public class FinalLevel : MonoBehaviour
         gameMusic.Stop();
         successAudio.Play();
 
-        gameManager.GamePause();
+        GameManager.instance.GamePause();
 
         if(PlayerFinishedLevel != null)
         {
@@ -70,7 +69,7 @@ public class FinalLevel : MonoBehaviour
 
     private void OnDisable()
     {
-        restartButton.onClick.RemoveListener(gameManager.RestartLevel);
-        mainMenuButton.onClick.RemoveListener(gameManager.FinishGame);
+        restartButton.onClick.RemoveListener(GameManager.instance.RestartLevel);
+        mainMenuButton.onClick.RemoveListener(GameManager.instance.FinishGame);
     }
 }
