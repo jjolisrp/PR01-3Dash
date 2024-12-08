@@ -89,6 +89,8 @@ public class GameManager : MonoBehaviour
 
     public Vector3 GetPlayerPosition() { return playerController.transform.position; }
     public Vector3 GetPlayerRbPosition() { return playerController.transform.GetComponent<Rigidbody>().position; }
+    public Vector3 GetPlayerStartPosition() { return playerController.startPosition; }
+    public Vector3 GetPlayerRbStartPosition() { return playerController.startRbPosition; }
     public void SetPlayerPosition(Vector3 newPosition) { playerController.startPosition = newPosition; }
     public void SetPlayerRbPosition(Vector3 newPosition) { playerController.startRbPosition = newPosition; }
 
