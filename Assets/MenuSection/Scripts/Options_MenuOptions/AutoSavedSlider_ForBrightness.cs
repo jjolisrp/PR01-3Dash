@@ -14,15 +14,15 @@ public class AutoSavedSlider_ForBrightness : AutoSavedSlider
     float minValue = -2.0f;
     float maxValue = 2.0f;
 
+    float brightness = 0f;
+
     protected override void InternalValueChanged(float newValue)
     {
-        //colorAdjustments = volume.profile.GetComponent<ColorAdjustments>();
-
-        //colorAdjustments.postExposure.value = newValue;
+        brightness = newValue;
 
         if(volume.profile.TryGet(out colorAdjustments)) 
         {
-            colorAdjustments.postExposure.value = Mathf.Lerp(minValue, maxValue, newValue);
+            colorAdjustments.postExposure.value = Mathf.Lerp(minValue, maxValue, brightness);
         }
         else
         {

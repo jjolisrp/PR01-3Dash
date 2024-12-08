@@ -6,8 +6,12 @@ public class AutoSavedDropdown_ForResolution : AutoSavedDropdown
 {
     [SerializeField] AutoSavedCheckBox_ForFullScreen fullScreen;
 
+    int resolution = 0;
+
     protected override void InternalValueChanged(int newValue)
     {
+        resolution = newValue;
+
         if(newValue == 0)
         {
             Screen.SetResolution(1920, 1080, fullScreen.isFullScreen);
